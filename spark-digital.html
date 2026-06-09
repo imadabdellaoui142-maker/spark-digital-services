@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark Digital Services – Professional CVs & Project Websites</title>
+  <meta name="description" content="Helping students and professionals build a stronger digital presence. Professional CVs, University Project Websites, and Digital Consultation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       TOKENS & RESET
+    ============================================================ */
+    :root {
+      --navy-900: #070C18;
+      --navy-800: #0A0F1E;
+      --navy-700: #0D1729;
+      --navy-600: #111E35;
+      --navy-500: #1A2744;
+      --navy-400: #243257;
+      --cyan: #00D4FF;
+      --cyan-dim: #00A8CC;
+      --cyan-glow: rgba(0, 212, 255, 0.15);
+      --cyan-glow-strong: rgba(0, 212, 255, 0.3);
+      --white: #F0F4FF;
+      --white-dim: #A8B8D8;
+      --white-muted: #5C6E8A;
+      --gold: #FFB84D;
+      --green: #00E5A0;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy-800);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: var(--sans); border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--navy-800); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-500); border-radius: 2px; }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .display-xl {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .display-lg {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .display-md {
+      font-family: var(--display);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .body-lg { font-size: 1.05rem; line-height: 1.7; color: var(--white-dim); }
+    .body-sm { font-size: 0.875rem; line-height: 1.6; color: var(--white-muted); }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    @media (min-width: 768px) { .container { padding: 0 40px; } }
+
+    section { padding: 80px 0; }
+    @media (min-width: 768px) { section { padding: 120px 0; } }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header .eyebrow { margin-bottom: 12px; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.06);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .btn:hover::after { opacity: 1; }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--navy-900);
+      box-shadow: 0 0 30px var(--cyan-glow-strong), 0 4px 16px rgba(0,212,255,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--cyan-glow-strong), 0 8px 24px rgba(0,212,255,0.35);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid var(--navy-500);
+    }
+    .btn-ghost:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-cyan {
+      background: transparent;
+      color: var(--cyan);
+      border: 1.5px solid var(--cyan);
+    }
+    .btn-outline-cyan:hover {
+      background: var(--cyan-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: all var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(10, 15, 30, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--navy-500);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo .spark-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--cyan);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 0 16px var(--cyan-glow-strong);
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: none;
+      gap: 8px;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      color: var(--white-dim);
+      transition: all var(--transition);
+    }
+    .nav-links a:hover { color: var(--white); background: var(--navy-600); }
+    .nav-cta { display: none; }
+    @media (min-width: 768px) { .nav-cta { display: inline-flex; } }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+    .mobile-menu-btn:hover { background: var(--navy-600); }
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: all var(--transition);
+    }
+    .mobile-menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--navy-800);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white-dim);
+      padding: 12px 32px;
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
+      width: 240px;
+      text-align: center;
+    }
+    .mobile-menu a:hover { color: var(--cyan); background: var(--navy-600); }
+    .mobile-menu .btn { width: 240px; justify-content: center; margin-top: 12px; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-orb-1 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      animation: orb-drift 8s ease-in-out infinite alternate;
+    }
+    .hero-orb-2 {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,100,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: 50px;
+      left: -50px;
+      animation: orb-drift 10s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes orb-drift {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(30px, 20px) scale(1.05); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy-600);
+      border: 1px solid var(--navy-500);
+      border-radius: 100px;
+      padding: 6px 16px 6px 10px;
+      margin-bottom: 32px;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(0,229,160,0); }
+    }
+    .hero-badge span { font-family: var(--mono); font-size: 0.72rem; color: var(--white-dim); }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--cyan); }
+    .hero-title .line-break { display: block; }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--white-dim);
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--navy-500);
+    }
+    .hero-stat-value {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .hero-stat-value .stat-accent { color: var(--cyan); }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      margin-top: 2px;
+    }
+
+    /* Spark particles */
+    .spark-particles {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .spark {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: spark-float var(--dur, 4s) var(--delay, 0s) ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes spark-float {
+      0% { opacity: 0; transform: translate(0, 0) scale(1); }
+      20% { opacity: 1; }
+      80% { opacity: 0.6; }
+      100% { opacity: 0; transform: translate(var(--tx, 40px), var(--ty, -80px)) scale(0.2); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { background: var(--navy-700); }
+    .about-grid {
+      display: grid;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card-main {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+    }
+    .about-avatar {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--cyan) 0%, #0080FF 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      box-shadow: 0 0 24px var(--cyan-glow);
+    }
+    .about-name {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .about-role {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .tag {
+      padding: 4px 12px;
+      background: var(--navy-600);
+      border: 1px solid var(--navy-500);
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--white-dim);
+    }
+    .about-floating-badge {
+      position: absolute;
+      bottom: -16px;
+      right: 16px;
+      background: var(--navy-600);
+      border: 1px solid var(--cyan);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 16px var(--cyan-glow);
+    }
+    .floating-badge-icon { font-size: 1.2rem; }
+    .floating-badge-text { font-family: var(--mono); font-size: 0.72rem; color: var(--cyan); }
+
+    .about-text .eyebrow { margin-bottom: 12px; }
+    .about-text h2 { margin-bottom: 20px; }
+    .about-text p { color: var(--white-dim); line-height: 1.8; margin-bottom: 16px; }
+    .about-text p:last-of-type { margin-bottom: 32px; }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { background: var(--navy-800); }
+    .services-grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .service-card {
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px var(--cyan-glow);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--navy-500);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      transition: all var(--transition);
+    }
+    .service-card:hover .service-icon-wrap {
+      background: var(--cyan-glow);
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    .service-card h3 {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .service-features {
+      margin-bottom: 24px;
+    }
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--white-dim);
+      padding: 4px 0;
+    }
+    .service-features li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--cyan);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       PORTFOLIO
+    ============================================================ */
+    #portfolio { background: var(--navy-700); }
+    .portfolio-grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+      }
+      .portfolio-card:first-child { grid-column: span 2; }
+    }
+
+    .portfolio-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .portfolio-card:hover {
+      border-color: var(--navy-400);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .portfolio-preview {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 1024px) {
+      .portfolio-card:first-child .portfolio-preview { height: 260px; }
+    }
+    .portfolio-mockup {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .mockup-browser {
+      width: 85%;
+      height: 85%;
+      background: var(--navy-900);
+      border-radius: 8px 8px 4px 4px;
+      overflow: hidden;
+      border: 1px solid var(--navy-500);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .mockup-browser-bar {
+      background: var(--navy-700);
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--navy-600);
+    }
+    .browser-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .bd-red { background: #FF5F57; }
+    .bd-yellow { background: #FEBC2E; }
+    .bd-green { background: #28C840; }
+    .mockup-url {
+      flex: 1;
+      background: var(--navy-600);
+      border-radius: 3px;
+      height: 12px;
+      margin-left: 8px;
+    }
+    .mockup-content {
+      padding: 12px;
+      height: calc(100% - 28px);
+      overflow: hidden;
+    }
+    .mockup-hero-bar {
+      height: 40%;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .mockup-row { height: 6px; background: var(--navy-500); border-radius: 3px; margin-bottom: 5px; }
+    .mockup-row.short { width: 60%; }
+    .mockup-row.shorter { width: 40%; }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .mockup-block {
+      height: 30px;
+      border-radius: 4px;
+    }
+
+    /* Color themes for portfolio mockups */
+    .theme-blue { background: linear-gradient(135deg, #0A1628 0%, #1A3A6B 100%); }
+    .theme-dark-cyan { background: linear-gradient(135deg, #061A20 0%, #0A3040 100%); }
+    .theme-slate { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
+    .theme-warm { background: linear-gradient(135deg, #1A0F05 0%, #3D2010 100%); }
+    .accent-bar-blue { background: linear-gradient(90deg, #00D4FF, #0080FF); }
+    .accent-bar-cyan { background: linear-gradient(90deg, #00E5A0, #00D4FF); }
+    .accent-bar-warm { background: linear-gradient(90deg, #FFB84D, #FF6B35); }
+    .accent-bar-purple { background: linear-gradient(90deg, #8B5CF6, #EC4899); }
+    .accent-block-blue { background: rgba(0,212,255,0.2); }
+    .accent-block-cyan { background: rgba(0,229,160,0.2); }
+    .accent-block-warm { background: rgba(255,184,77,0.2); }
+    .accent-block-purple { background: rgba(139,92,246,0.2); }
+
+    .portfolio-info { padding: 20px 24px; }
+    .portfolio-category {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .portfolio-title {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .portfolio-desc {
+      font-size: 0.83rem;
+      color: var(--white-muted);
+      line-height: 1.5;
+    }
+    .portfolio-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .tech-pill {
+      padding: 3px 8px;
+      background: var(--navy-600);
+      border: 1px solid var(--navy-500);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--white-muted);
+    }
+
+    /* CV mockup special */
+    .cv-mockup {
+      width: 70%;
+      height: 85%;
+      background: #F8FAFF;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      display: flex;
+    }
+    .cv-sidebar {
+      width: 35%;
+      background: var(--navy-700);
+      padding: 10px 6px;
+    }
+    .cv-sidebar-avatar {
+      width: 28px;
+      height: 28px;
+      background: var(--cyan);
+      border-radius: 50%;
+      margin: 0 auto 8px;
+    }
+    .cv-sidebar-bar { height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; margin-bottom: 4px; }
+    .cv-sidebar-bar.short { width: 60%; }
+    .cv-main {
+      flex: 1;
+      padding: 10px 8px;
+      background: #F8FAFF;
+    }
+    .cv-main-bar { height: 4px; background: #D0D8E8; border-radius: 2px; margin-bottom: 4px; }
+    .cv-main-bar.short { width: 50%; }
+    .cv-header-bar { height: 8px; background: var(--navy-700); border-radius: 2px; margin-bottom: 8px; width: 80%; }
+
+    /* ============================================================
+       WHY CHOOSE
+    ============================================================ */
+    #why { background: var(--navy-800); }
+    .why-grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .why-card {
+      padding: 28px;
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .why-card:hover {
+      border-color: var(--cyan);
+      background: var(--navy-600);
+    }
+    .why-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .why-card h3 {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .why-card p {
+      font-size: 0.875rem;
+      color: var(--white-dim);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { background: var(--navy-700); }
+    .testimonials-grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .testimonial-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color var(--transition);
+    }
+    .testimonial-card:hover { border-color: var(--navy-400); }
+    .stars {
+      display: flex;
+      gap: 3px;
+    }
+    .star { color: var(--gold); font-size: 0.9rem; }
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: var(--display);
+      flex-shrink: 0;
+    }
+    .author-name { font-family: var(--display); font-size: 0.9rem; font-weight: 600; }
+    .author-role { font-size: 0.77rem; color: var(--white-muted); margin-top: 2px; }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    #cta { background: var(--navy-800); padding: 80px 0; }
+    @media (min-width: 768px) { #cta { padding: 100px 0; } }
+    .cta-inner {
+      background: linear-gradient(135deg, var(--navy-600) 0%, var(--navy-700) 100%);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-lg);
+      padding: 56px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-inner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    .cta-orb {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .cta-inner .eyebrow { margin-bottom: 16px; }
+    .cta-inner h2 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .cta-inner p { color: var(--white-dim); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; position: relative; z-index: 1; }
+
+    /* ============================================================
+       CONTACT INFO
+    ============================================================ */
+    #contact { background: var(--navy-700); padding: 80px 0; }
+    .contact-grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      background: var(--navy-800);
+      border: 1px solid var(--navy-500);
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
+    }
+    .contact-item:hover { border-color: var(--cyan); }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--navy-600);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label { font-family: var(--mono); font-size: 0.7rem; color: var(--white-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-value { font-size: 0.9rem; font-weight: 500; color: var(--white); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--navy-900);
+      border-top: 1px solid var(--navy-600);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      gap: 40px;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.875rem; color: var(--white-muted); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-family: var(--display); font-size: 0.9rem; font-weight: 600; margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 0.875rem;
+      color: var(--white-muted);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--cyan); }
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--navy-600);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--white-muted); }
+    .footer-bottom .accent { color: var(--cyan); }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+    }
+    .social-link:hover {
+      background: var(--cyan-glow);
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       ANIMATIONS (reveal on scroll)
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .text-cyan { color: var(--cyan); }
+    .text-muted { color: var(--white-muted); }
+    .mt-4 { margin-top: 16px; }
+    .mt-8 { margin-top: 32px; }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .gap-2 { gap: 8px; }
+
+    /* Sticky booking bar on mobile */
+    .sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,15,30,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--navy-500);
+      padding: 12px 20px;
+      z-index: 90;
+    }
+    @media (max-width: 767px) { .sticky-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; } }
+    .sticky-bar p { font-size: 0.8rem; color: var(--white-dim); }
+    .sticky-bar strong { font-family: var(--display); font-size: 0.9rem; font-weight: 600; color: var(--white); display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <div class="spark-icon">⚡</div>
+          <span>Spark Digital</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#testimonials">Reviews</a>
+        </div>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta">
+          Book a Consultation
+        </a>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
+    <a href="#why" onclick="closeMobileMenu()">Why Us</a>
+    <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+    <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobileMenu()">
+      ⚡ Book a Consultation
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb-1"></div>
+      <div class="hero-orb-2"></div>
+    </div>
+    <!-- Spark particles -->
+    <div class="spark-particles" id="sparkParticles" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <div class="hero-badge-dot"></div>
+          <span>Available for new projects</span>
+        </div>
+        <h1 class="hero-title reveal reveal-delay-1">
+          Professional CVs<br>
+          <span class="accent">&amp; Modern</span><br>
+          Project Websites
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Helping students and professionals build a stronger digital presence — from ATS-ready resumes to polished university project websites.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary">
+            ⚡ Book a Consultation
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            View Services →
+          </a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div>
+            <div class="hero-stat-value">48<span class="stat-accent">h</span></div>
+            <div class="hero-stat-label">Average turnaround</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">100<span class="stat-accent">%</span></div>
+            <div class="hero-stat-label">Client satisfaction</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">3<span class="stat-accent">+</span></div>
+            <div class="hero-stat-label">Core services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-card-main">
+            <div class="about-avatar">👨‍💻</div>
+            <div class="about-name">Imad</div>
+            <div class="about-role">// Founder, Computer Science Student</div>
+            <p style="font-size:0.875rem; color: var(--white-dim); line-height: 1.7;">
+              Passionate about building clean, functional, and impactful digital products. I combine academic knowledge with practical skills to deliver results that actually matter to clients.
+            </p>
+            <div class="about-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">CV Design</span>
+              <span class="tag">UI / UX</span>
+              <span class="tag">Algeria 🇩🇿</span>
+            </div>
+            <div class="about-floating-badge">
+              <span class="floating-badge-icon">🎓</span>
+              <div>
+                <div class="floating-badge-text">CS Student → Professional Results</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal reveal-delay-2">
+          <p class="eyebrow">About Spark Digital</p>
+          <h2 class="display-lg">Built for students,<br>by a student.</h2>
+          <p>Spark Digital Services was created with a simple mission: make professional digital services affordable and accessible for university students, fresh graduates, freelancers, and small businesses.</p>
+          <p>Whether you need an ATS-ready CV that gets past recruiters, a stunning university project website for your PFE presentation, or a complete digital strategy consultation — I deliver professional results without the agency price tag.</p>
+          <p>Every project gets personal attention, fast communication, and a commitment to quality that larger agencies can't match at this price point.</p>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan">
+            Book a free discovery call →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">What I offer</p>
+        <h2 class="display-lg">Services designed<br>for your goals</h2>
+      </div>
+      <div class="services-grid">
+        <!-- CV Service -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">📄</div>
+          <h3>CV &amp; Resume Design</h3>
+          <p>Stand out in a competitive job market with a professionally crafted CV that passes ATS systems and impresses human recruiters — tailored to your field and goals.</p>
+          <ul class="service-features">
+            <li>Professional CV creation from scratch</li>
+            <li>Resume redesign &amp; modernization</li>
+            <li>ATS-optimized formatting</li>
+            <li>LinkedIn profile optimization</li>
+            <li>Cover letter template included</li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan btn-sm">
+            Get my CV done →
+          </a>
+        </div>
+        <!-- Project Websites -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🌐</div>
+          <h3>University Project Websites</h3>
+          <p>Present your PFE or PFA with a website that reflects the quality of your work. Clean, responsive, and modern — built to impress your jury and future employers.</p>
+          <ul class="service-features">
+            <li>PFE / PFA project landing pages</li>
+            <li>Student portfolio websites</li>
+            <li>HTML / CSS / JavaScript projects</li>
+            <li>Responsive &amp; mobile-first design</li>
+            <li>Custom domain setup assistance</li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan btn-sm">
+            Start my website →
+          </a>
+        </div>
+        <!-- Consultation -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon-wrap">💡</div>
+          <h3>Consultation &amp; Planning</h3>
+          <p>Not sure where to start? Book a one-on-one session to map out your digital strategy, plan your project, or get expert feedback on your current materials.</p>
+          <ul class="service-features">
+            <li>Digital presence audit</li>
+            <li>Project scoping &amp; planning</li>
+            <li>Tech stack recommendations</li>
+            <li>CV &amp; LinkedIn review session</li>
+            <li>Freelance setup guidance</li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            ⚡ Book now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Recent work</p>
+        <h2 class="display-lg">Projects that speak<br>for themselves</h2>
+      </div>
+      <div class="portfolio-grid">
+        <!-- Project 1 - Featured -->
+        <div class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-blue">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar">
+                  <div class="browser-dot bd-red"></div>
+                  <div class="browser-dot bd-yellow"></div>
+                  <div class="browser-dot bd-green"></div>
+                  <div class="mockup-url"></div>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-hero-bar accent-bar-blue" style="height:38%;"></div>
+                  <div class="mockup-row" style="margin-top:10px;"></div>
+                  <div class="mockup-row short"></div>
+                  <div class="mockup-grid" style="margin-top:10px;">
+                    <div class="mockup-block accent-block-blue"></div>
+                    <div class="mockup-block accent-block-blue"></div>
+                    <div class="mockup-block accent-block-blue"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category">University Project</div>
+            <div class="portfolio-title">SmartCampus — Software Engineering PFE</div>
+            <div class="portfolio-desc">A full-stack campus management system with real-time scheduling and student portal. Built for a Master's final-year project presentation.</div>
+            <div class="portfolio-tech">
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">REST API</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-dark-cyan">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar">
+                  <div class="browser-dot bd-red"></div>
+                  <div class="browser-dot bd-yellow"></div>
+                  <div class="browser-dot bd-green"></div>
+                  <div class="mockup-url"></div>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-hero-bar accent-bar-cyan" style="height:30%;"></div>
+                  <div class="mockup-row" style="margin-top:8px;"></div>
+                  <div class="mockup-row short"></div>
+                  <div class="mockup-row shorter"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category">Student Portfolio</div>
+            <div class="portfolio-title">Karim B. — Developer Portfolio</div>
+            <div class="portfolio-desc">Minimalist dark portfolio with animated hero, project showcase, and integrated contact form.</div>
+            <div class="portfolio-tech">
+              <span class="tech-pill">HTML/CSS</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">GSAP</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-warm">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar">
+                  <div class="browser-dot bd-red"></div>
+                  <div class="browser-dot bd-yellow"></div>
+                  <div class="browser-dot bd-green"></div>
+                  <div class="mockup-url"></div>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-hero-bar accent-bar-warm" style="height:40%;"></div>
+                  <div class="mockup-grid" style="margin-top:8px;">
+                    <div class="mockup-block accent-block-warm"></div>
+                    <div class="mockup-block accent-block-warm"></div>
+                    <div class="mockup-block accent-block-warm"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category">Small Business</div>
+            <div class="portfolio-title">Le Palais — Restaurant Landing Page</div>
+            <div class="portfolio-desc">Elegant restaurant website with menu showcase, reservations, and Google Maps integration. Doubled online orders within a month.</div>
+            <div class="portfolio-tech">
+              <span class="tech-pill">HTML/CSS</span>
+              <span class="tech-pill">JS</span>
+              <span class="tech-pill">Maps API</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4 - CV -->
+        <div class="portfolio-card reveal reveal-delay-3">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup" style="background: var(--navy-900);">
+              <div class="cv-mockup">
+                <div class="cv-sidebar">
+                  <div class="cv-sidebar-avatar"></div>
+                  <div style="height:1px;background:rgba(255,255,255,0.1);margin:8px 0;"></div>
+                  <div class="cv-sidebar-bar"></div>
+                  <div class="cv-sidebar-bar short"></div>
+                  <div style="height:8px;"></div>
+                  <div class="cv-sidebar-bar"></div>
+                  <div class="cv-sidebar-bar short"></div>
+                  <div class="cv-sidebar-bar"></div>
+                </div>
+                <div class="cv-main">
+                  <div class="cv-header-bar"></div>
+                  <div class="cv-main-bar"></div>
+                  <div class="cv-main-bar short"></div>
+                  <div style="height:6px;"></div>
+                  <div class="cv-main-bar"></div>
+                  <div class="cv-main-bar"></div>
+                  <div class="cv-main-bar short"></div>
+                  <div style="height:6px;"></div>
+                  <div class="cv-main-bar"></div>
+                  <div class="cv-main-bar short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category">CV Design</div>
+            <div class="portfolio-title">Nour A. — Engineering Graduate CV</div>
+            <div class="portfolio-desc">ATS-optimized two-column CV for a mechanical engineering graduate. Passed 8/10 ATS screens and landed 3 interviews in the first week.</div>
+            <div class="portfolio-tech">
+              <span class="tech-pill">ATS-Ready</span>
+              <span class="tech-pill">LaTeX</span>
+              <span class="tech-pill">PDF Export</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section id="why">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Why Spark Digital</p>
+        <h2 class="display-lg">What makes us<br>different</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <span class="why-icon">⚡</span>
+          <h3>Fast Communication</h3>
+          <p>I respond within hours, not days. You'll always know where your project stands. No ghosting, no waiting weeks for updates.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <span class="why-icon">💰</span>
+          <h3>Student-Friendly Pricing</h3>
+          <p>Professional quality at prices that fit a student budget. Because good design shouldn't be a luxury only big companies can afford.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <span class="why-icon">📱</span>
+          <h3>Mobile-First Design</h3>
+          <p>Every website I build is optimized for mobile devices first. In 2025, your audience is on their phones — so that's where we start.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <span class="why-icon">🏆</span>
+          <h3>Professional Results</h3>
+          <p>Despite being student-friendly in price, there's no compromise on quality. Every deliverable meets professional industry standards.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <span class="why-icon">🤝</span>
+          <h3>Personalized Support</h3>
+          <p>You work directly with me — not a junior, not an outsourced team. Your project gets my full attention and expertise from start to finish.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <span class="why-icon">🔄</span>
+          <h3>Unlimited Revisions</h3>
+          <p>I don't stop until you're happy. Multiple revision rounds are included in every package because your satisfaction is the final deliverable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Client reviews</p>
+        <h2 class="display-lg">What clients say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"Imad delivered my PFE website in under 48 hours and it looked better than anything I could have imagined. My jury was genuinely impressed. Couldn't recommend more."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #00D4FF, #0080FF); color: var(--navy-900);">AH</div>
+            <div>
+              <div class="author-name">Ahmed H.</div>
+              <div class="author-role">Software Engineering Student, USTO</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"My old CV was getting zero responses. After Imad redesigned it, I got 4 interview calls in the first two weeks. The ATS optimization really works. 100% worth it."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #00E5A0, #00A8CC); color: var(--navy-900);">SB</div>
+            <div>
+              <div class="author-name">Sarra B.</div>
+              <div class="author-role">Recent Graduate, Génie Informatique</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"As a small restaurant owner, I needed a website fast and at a reasonable price. Spark Digital delivered exactly that — a beautiful, professional site that actually brings in customers."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #FFB84D, #FF6B35); color: var(--navy-900);">MK</div>
+            <div>
+              <div class="author-name">Mohamed K.</div>
+              <div class="author-role">Restaurant Owner, Oran</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"I had a consultation session before my job applications season. Imad reviewed my LinkedIn, CV, and gave me a complete strategy. Super helpful and very professional attitude."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #8B5CF6, #EC4899); color: white);">LM</div>
+            <div>
+              <div class="author-name">Lina M.</div>
+              <div class="author-role">Final-Year Student, ESI</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"Our PFA team was really stressed about the presentation. Imad built us a clean, professional project website in 24 hours. Incredibly fast, affordable, and communicative throughout."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #00D4FF, #00E5A0); color: var(--navy-900);">YT</div>
+            <div>
+              <div class="author-name">Yacine T.</div>
+              <div class="author-role">Engineering Student, Tlemcen University</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testimonial-text">"I'm a freelancer and needed to revamp my portfolio quickly. Imad helped me create a modern portfolio site and a LinkedIn strategy. Clients now find me through Google — amazing!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #FFB84D, #FF6B35); color: var(--navy-900);">RD</div>
+            <div>
+              <div class="author-name">Ryad D.</div>
+              <div class="author-role">Freelance Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-orb"></div>
+        <p class="eyebrow">Ready to start?</p>
+        <h2>Let's build your digital presence together</h2>
+        <p>Whether you need a CV, a website, or just a conversation — the first step is a free 30-minute consultation. No commitment, no pressure.</p>
+        <div class="cta-actions">
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary">
+            ⚡ Book a Free Consultation
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            Explore Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="display-md">Reach out anytime</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-icon">📅</div>
+          <div>
+            <div class="contact-label">Book a session</div>
+            <div class="contact-value"><a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--cyan);">cal.eu/spark-dz</a></div>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon">📸</div>
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value">@spark.digital.dz</div>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-3">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">linkedin.com/in/spark-dz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="spark-icon">⚡</div>
+            <span>Spark Digital Services</span>
+          </div>
+          <p>Helping students and professionals build a stronger digital presence. CVs, project websites, and digital strategy — made in Algeria, built for the world.</p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="#" class="social-link" aria-label="Instagram" title="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">💼</a>
+            <a href="#" class="social-link" aria-label="WhatsApp" title="WhatsApp">💬</a>
+            <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="social-link" aria-label="Book a session" title="Book">📅</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">CV &amp; Resume Design</a></li>
+            <li><a href="#services">University Project Websites</a></li>
+            <li><a href="#services">Consultation &amp; Planning</a></li>
+            <li><a href="#services">LinkedIn Optimization</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Spark</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="https://cal.eu/spark-dz" target="_blank" rel="noopener">Book a Consultation ⚡</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span class="accent">Spark Digital Services</span>. Built with passion in Algeria 🇩🇿</p>
+        <p style="font-size:0.75rem; color: var(--white-muted);">Designed by Imad · <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--cyan);">Book a session</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <div>
+      <strong>Ready to start?</strong>
+      <p>Book a free consultation</p>
+    </div>
+    <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+      ⚡ Book Now
+    </a>
+  </div>
+
+  <script>
+    // ============================================================
+    // NAV SCROLL
+    // ============================================================
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 40) { navbar.classList.add('scrolled'); }
+      else { navbar.classList.remove('scrolled'); }
+      lastScroll = y;
+    }, { passive: true });
+
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      menuBtn.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      menuBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) closeMobileMenu();
+    });
+
+    // ============================================================
+    // SCROLL REVEAL
+    // ============================================================
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ============================================================
+    // SPARK PARTICLES
+    // ============================================================
+    const particleContainer = document.getElementById('sparkParticles');
+    const PARTICLE_COUNT = 24;
+
+    function createParticles() {
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const spark = document.createElement('div');
+        spark.className = 'spark';
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const tx = (Math.random() - 0.5) * 120;
+        const ty = -(40 + Math.random() * 100);
+        const dur = 3 + Math.random() * 5;
+        const delay = Math.random() * 6;
+        const size = 1 + Math.random() * 2.5;
+        const opacity = 0.3 + Math.random() * 0.7;
+
+        spark.style.cssText = `
+          left: ${x}%;
+          top: ${y}%;
+          width: ${size}px;
+          height: ${size}px;
+          --dur: ${dur}s;
+          --delay: -${delay}s;
+          --tx: ${tx}px;
+          --ty: ${ty}px;
+          max-opacity: ${opacity};
+        `;
+
+        // Some sparks are small lines
+        if (Math.random() > 0.7) {
+          spark.style.width = `${size * 0.5}px`;
+          spark.style.height = `${size * 4}px`;
+          spark.style.borderRadius = '1px';
+        }
+
+        particleContainer.appendChild(spark);
+      }
+    }
+
+    createParticles();
+
+    // ============================================================
+    // STICKY BAR - hide when hero CTA in view
+    // ============================================================
+    const stickyBar = document.getElementById('stickyBar');
+    const heroSection = document.getElementById('hero');
+
+    const stickyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyBar.style.display = 'none';
+        } else {
+          stickyBar.style.display = '';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    stickyObserver.observe(heroSection);
+
+    // ============================================================
+    // SMOOTH ANCHOR SCROLLING (offset for fixed nav)
+    // ============================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 72;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ============================================================
+    // HERO STATS - count-up animation
+    // ============================================================
+    function countUp(el, target, suffix, duration = 1500) {
+      const start = performance.now();
+      const isFloat = target % 1 !== 0;
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect();
+          function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(ease * target);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+      });
+      observer.observe(el.closest('.hero-stat-value') || el);
+    }
+  </script>
+</body>
+</html>
