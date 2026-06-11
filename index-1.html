@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark Digital Services – سيرة ذاتية احترافية ومواقع مشاريع</title>
+  <meta name="description" content="نساعد الطلاب والمهنيين على بناء حضور رقمي أقوى. سيرة ذاتية احترافية، مواقع مشاريع جامعية، واستشارات رقمية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-900: #070C18;
+      --navy-800: #0A0F1E;
+      --navy-700: #0D1729;
+      --navy-600: #111E35;
+      --navy-500: #1A2744;
+      --navy-400: #243257;
+      --cyan: #00D4FF;
+      --cyan-dim: #00A8CC;
+      --cyan-glow: rgba(0, 212, 255, 0.15);
+      --cyan-glow-strong: rgba(0, 212, 255, 0.3);
+      --white: #F0F4FF;
+      --white-dim: #A8B8D8;
+      --white-muted: #5C6E8A;
+      --gold: #FFB84D;
+      --green: #00E5A0;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+      --arabic: 'Cairo', sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* RTL mode — Arabic fonts */
+    html[lang="ar"] body { font-family: var(--arabic); }
+    html[lang="ar"] .hero-title,
+    html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4,
+    html[lang="ar"] .nav-logo span,
+    html[lang="ar"] .btn,
+    html[lang="ar"] .display-lg,
+    html[lang="ar"] .display-md { font-family: var(--arabic); letter-spacing: 0; }
+    html[lang="ar"] .eyebrow { font-family: var(--arabic); letter-spacing: 0; }
+    html[lang="ar"] .about-role { font-family: var(--mono); }
+    html[lang="ar"] .tag { font-family: var(--arabic); font-size: 0.8rem; }
+    html[lang="ar"] .tech-pill { font-family: var(--mono); }
+
+    /* LTR mode — Latin fonts */
+    html[lang="en"] body { font-family: var(--sans); }
+    html[lang="en"] .hero-title,
+    html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4,
+    html[lang="en"] .nav-logo span,
+    html[lang="en"] .btn,
+    html[lang="en"] .display-lg,
+    html[lang="en"] .display-md { font-family: var(--display); letter-spacing: -0.02em; }
+    html[lang="en"] .eyebrow { font-family: var(--mono); letter-spacing: 0.15em; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy-800);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: font-family 0.2s;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* i18n — show/hide content per language */
+    .ar { display: none; }
+    .en { display: inline; }
+    html[lang="ar"] .ar { display: inline; }
+    html[lang="ar"] .en { display: none; }
+    html[lang="ar"] .ar-block { display: block; }
+    html[lang="ar"] .en-block { display: none; }
+    .ar-block { display: none; }
+    .en-block { display: block; }
+    html[lang="ar"] .ar-flex { display: flex; }
+    html[lang="ar"] .en-flex { display: none; }
+    .ar-flex { display: none; }
+    .en-flex { display: flex; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--navy-800); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-500); border-radius: 2px; }
+
+    /* Typography */
+    .display-xl { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.1; }
+    .display-lg { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; }
+    .display-md { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 600; line-height: 1.3; }
+    .eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--cyan); }
+    html[lang="ar"] .display-xl { line-height: 1.4; }
+    html[lang="ar"] .display-lg { line-height: 1.5; }
+    html[lang="ar"] .hero-title { line-height: 1.4; letter-spacing: 0; }
+
+    /* Layout */
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    @media (min-width: 768px) { .container { padding: 0 40px; } }
+    section { padding: 80px 0; }
+    @media (min-width: 768px) { section { padding: 120px 0; } }
+    .section-header { margin-bottom: 56px; }
+    .section-header .eyebrow { margin-bottom: 12px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: var(--radius-md);
+      font-size: 0.95rem; font-weight: 700;
+      transition: all var(--transition); white-space: nowrap;
+      position: relative; overflow: hidden;
+    }
+    html[lang="ar"] .btn { font-size: 1rem; font-family: var(--arabic); }
+    .btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.06); opacity: 0; transition: opacity var(--transition); }
+    .btn:hover::after { opacity: 1; }
+    .btn-primary { background: var(--cyan); color: var(--navy-900); box-shadow: 0 0 30px var(--cyan-glow-strong), 0 4px 16px rgba(0,212,255,0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px var(--cyan-glow-strong), 0 8px 24px rgba(0,212,255,0.35); }
+    .btn-ghost { background: transparent; color: var(--white); border: 1.5px solid var(--navy-500); }
+    .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+    .btn-outline-cyan { background: transparent; color: var(--cyan); border: 1.5px solid var(--cyan); }
+    .btn-outline-cyan:hover { background: var(--cyan-glow); transform: translateY(-2px); }
+    .btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+    html[lang="ar"] .btn-sm { font-size: 0.92rem; }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0;
+      background: var(--navy-600); border: 1px solid var(--navy-500);
+      border-radius: 100px; padding: 3px; flex-shrink: 0;
+    }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; color: var(--white-muted);
+      transition: all var(--transition); cursor: pointer;
+      font-family: var(--sans) !important; letter-spacing: 0 !important;
+    }
+    .lang-btn.active { background: var(--cyan); color: var(--navy-900); }
+    .lang-btn:not(.active):hover { color: var(--white); }
+
+    /* Navigation */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; transition: all var(--transition); }
+    nav.scrolled { background: rgba(10,15,30,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--navy-500); padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; }
+    html[lang="ar"] .nav-logo { font-family: var(--arabic); font-size: 1rem; }
+    .nav-logo .spark-icon { width: 32px; height: 32px; background: var(--cyan); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; box-shadow: 0 0 16px var(--cyan-glow-strong); flex-shrink: 0; }
+    .nav-links { display: none; gap: 8px; align-items: center; }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+    .nav-links a { padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.9rem; color: var(--white-dim); transition: all var(--transition); }
+    html[lang="ar"] .nav-links a { font-family: var(--arabic); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--white); background: var(--navy-600); }
+    .nav-cta { display: none; }
+    @media (min-width: 768px) { .nav-cta { display: inline-flex; } }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    /* Mobile menu button */
+    .mobile-menu-btn { display: flex; flex-direction: column; gap: 5px; padding: 8px; border-radius: var(--radius-sm); transition: background var(--transition); }
+    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+    .mobile-menu-btn:hover { background: var(--navy-600); }
+    .mobile-menu-btn span { display: block; width: 22px; height: 1.5px; background: var(--white); border-radius: 1px; transition: all var(--transition); }
+    .mobile-menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .mobile-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--navy-800); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.4rem; font-weight: 600; color: var(--white-dim); padding: 12px 32px; border-radius: var(--radius-md); transition: all var(--transition); width: 260px; text-align: center; }
+    html[lang="ar"] .mobile-menu a { font-family: var(--arabic); font-size: 1.3rem; }
+    .mobile-menu a:hover { color: var(--cyan); background: var(--navy-600); }
+    .mobile-menu .btn { width: 260px; justify-content: center; margin-top: 12px; }
+    .mobile-menu .lang-toggle { margin-top: 8px; }
+
+    /* Hero */
+    #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%); }
+    .hero-orb-1 { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%); border-radius: 50%; top: -100px; right: -100px; animation: orb-drift 8s ease-in-out infinite alternate; }
+    .hero-orb-2 { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,100,255,0.1) 0%, transparent 70%); border-radius: 50%; bottom: 50px; left: -50px; animation: orb-drift 10s ease-in-out infinite alternate-reverse; }
+    @keyframes orb-drift { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,20px) scale(1.05); } }
+
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy-600); border: 1px solid var(--navy-500); border-radius: 100px; padding: 6px 16px 6px 10px; margin-bottom: 32px; }
+    html[lang="ar"] .hero-badge { padding: 6px 10px 6px 16px; }
+    .hero-badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(0,229,160,0.4); } 50% { box-shadow: 0 0 0 6px rgba(0,229,160,0); } }
+    .hero-badge span { font-family: var(--mono); font-size: 0.72rem; color: var(--white-dim); }
+    html[lang="ar"] .hero-badge span { font-family: var(--arabic); font-size: 0.8rem; }
+
+    .hero-title { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px; }
+    html[lang="ar"] .hero-title { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.5; letter-spacing: 0; font-weight: 900; }
+    .hero-title .accent { color: var(--cyan); }
+
+    .hero-sub { font-size: 1.1rem; line-height: 1.7; color: var(--white-dim); margin-bottom: 40px; max-width: 520px; }
+    html[lang="ar"] .hero-sub { font-size: 1.05rem; line-height: 1.9; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--navy-500); }
+    .hero-stat-value { font-family: var(--display); font-size: 1.8rem; font-weight: 700; color: var(--white); }
+    .hero-stat-value .stat-accent { color: var(--cyan); }
+    .hero-stat-label { font-size: 0.8rem; color: var(--white-muted); margin-top: 2px; }
+    html[lang="ar"] .hero-stat-label { font-family: var(--arabic); font-size: 0.85rem; }
+
+    /* Spark particles */
+    .spark-particles { position: absolute; top: 0; right: 0; width: 50%; height: 100%; pointer-events: none; overflow: hidden; }
+    .spark { position: absolute; width: 2px; height: 2px; background: var(--cyan); border-radius: 50%; animation: spark-float var(--dur,4s) var(--delay,0s) ease-in-out infinite; opacity: 0; }
+    @keyframes spark-float { 0% { opacity:0; transform:translate(0,0) scale(1); } 20% { opacity:1; } 80% { opacity:0.6; } 100% { opacity:0; transform:translate(var(--tx,40px),var(--ty,-80px)) scale(0.2); } }
+
+    /* About */
+    #about { background: var(--navy-700); }
+    .about-grid { display: grid; gap: 56px; align-items: center; }
+    @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
+    .about-card-main { background: var(--navy-800); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); padding: 32px; position: relative; overflow: hidden; }
+    .about-card-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), transparent); }
+    html[lang="ar"] .about-card-main::before { background: linear-gradient(270deg, var(--cyan), transparent); }
+    .about-avatar { width: 64px; height: 64px; background: linear-gradient(135deg, var(--cyan) 0%, #0080FF 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 16px; box-shadow: 0 0 24px var(--cyan-glow); }
+    .about-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+    .about-role { font-family: var(--mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 20px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .tag { padding: 4px 12px; background: var(--navy-600); border: 1px solid var(--navy-500); border-radius: 100px; font-size: 0.72rem; color: var(--white-dim); }
+    .about-floating-badge { position: absolute; bottom: -16px; right: 16px; background: var(--navy-600); border: 1px solid var(--cyan); border-radius: var(--radius-md); padding: 12px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 16px var(--cyan-glow); }
+    html[lang="ar"] .about-floating-badge { right: auto; left: 16px; }
+    .floating-badge-icon { font-size: 1.2rem; }
+    .floating-badge-text { font-family: var(--mono); font-size: 0.72rem; color: var(--cyan); }
+    html[lang="ar"] .floating-badge-text { font-family: var(--arabic); font-size: 0.8rem; }
+    .about-text .eyebrow { margin-bottom: 12px; }
+    .about-text h2 { margin-bottom: 20px; }
+    .about-text p { color: var(--white-dim); line-height: 1.8; margin-bottom: 16px; }
+    html[lang="ar"] .about-text p { line-height: 2; }
+    .about-text p:last-of-type { margin-bottom: 32px; }
+
+    /* Services */
+    #services { background: var(--navy-800); }
+    .services-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .service-card { background: var(--navy-700); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); padding: 32px; transition: all var(--transition); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), transparent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
+    html[lang="ar"] .service-card::after { background: linear-gradient(270deg, var(--cyan), transparent); transform-origin: right; }
+    .service-card:hover { border-color: var(--cyan); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px var(--cyan-glow); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon-wrap { width: 52px; height: 52px; background: var(--navy-500); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; transition: all var(--transition); }
+    .service-card:hover .service-icon-wrap { background: var(--cyan-glow); box-shadow: 0 0 20px var(--cyan-glow); }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+    html[lang="ar"] .service-card h3 { font-size: 1.2rem; }
+    .service-card p { font-size: 0.9rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+    html[lang="ar"] .service-card p { line-height: 2; font-size: 0.95rem; }
+    .service-features { margin-bottom: 24px; }
+    .service-features li { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--white-dim); padding: 4px 0; }
+    html[lang="ar"] .service-features li { font-size: 0.88rem; flex-direction: row-reverse; justify-content: flex-end; }
+    .service-features li::before { content: ''; width: 4px; height: 4px; background: var(--cyan); border-radius: 50%; flex-shrink: 0; }
+
+    /* Portfolio */
+    #portfolio { background: var(--navy-700); }
+    .portfolio-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(3,1fr); grid-template-rows: auto auto; } .portfolio-card:first-child { grid-column: span 2; } }
+    .portfolio-card { background: var(--navy-800); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition); cursor: pointer; }
+    .portfolio-card:hover { border-color: var(--navy-400); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .portfolio-preview { width: 100%; height: 200px; position: relative; overflow: hidden; }
+    @media (min-width: 1024px) { .portfolio-card:first-child .portfolio-preview { height: 260px; } }
+    .portfolio-mockup { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
+    .mockup-browser { width: 85%; height: 85%; background: var(--navy-900); border-radius: 8px 8px 4px 4px; overflow: hidden; border: 1px solid var(--navy-500); box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    .mockup-browser-bar { background: var(--navy-700); padding: 6px 10px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--navy-600); }
+    .browser-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .bd-red { background: #FF5F57; } .bd-yellow { background: #FEBC2E; } .bd-green { background: #28C840; }
+    .mockup-url { flex: 1; background: var(--navy-600); border-radius: 3px; height: 12px; margin-left: 8px; }
+    .mockup-content { padding: 12px; height: calc(100% - 28px); overflow: hidden; }
+    .mockup-hero-bar { height: 40%; border-radius: 4px; margin-bottom: 8px; }
+    .mockup-row { height: 6px; background: var(--navy-500); border-radius: 3px; margin-bottom: 5px; }
+    .mockup-row.short { width: 60%; } .mockup-row.shorter { width: 40%; }
+    .mockup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 8px; }
+    .mockup-block { height: 30px; border-radius: 4px; }
+    .theme-blue { background: linear-gradient(135deg,#0A1628 0%,#1A3A6B 100%); }
+    .theme-dark-cyan { background: linear-gradient(135deg,#061A20 0%,#0A3040 100%); }
+    .theme-slate { background: linear-gradient(135deg,#0F172A 0%,#1E293B 100%); }
+    .theme-warm { background: linear-gradient(135deg,#1A0F05 0%,#3D2010 100%); }
+    .accent-bar-blue { background: linear-gradient(90deg,#00D4FF,#0080FF); }
+    .accent-bar-cyan { background: linear-gradient(90deg,#00E5A0,#00D4FF); }
+    .accent-bar-warm { background: linear-gradient(90deg,#FFB84D,#FF6B35); }
+    .accent-block-blue { background: rgba(0,212,255,0.2); }
+    .accent-block-cyan { background: rgba(0,229,160,0.2); }
+    .accent-block-warm { background: rgba(255,184,77,0.2); }
+    .portfolio-info { padding: 20px 24px; }
+    .portfolio-category { font-family: var(--mono); font-size: 0.68rem; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .portfolio-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    html[lang="ar"] .portfolio-title { font-size: 1.05rem; }
+    .portfolio-desc { font-size: 0.83rem; color: var(--white-muted); line-height: 1.5; }
+    html[lang="ar"] .portfolio-desc { line-height: 1.8; font-size: 0.88rem; }
+    .portfolio-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tech-pill { padding: 3px 8px; background: var(--navy-600); border: 1px solid var(--navy-500); border-radius: 4px; font-family: var(--mono); font-size: 0.68rem; color: var(--white-muted); }
+    .cv-mockup { width: 70%; height: 85%; background: #F8FAFF; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5); display: flex; }
+    .cv-sidebar { width: 35%; background: var(--navy-700); padding: 10px 6px; }
+    .cv-sidebar-avatar { width: 28px; height: 28px; background: var(--cyan); border-radius: 50%; margin: 0 auto 8px; }
+    .cv-sidebar-bar { height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; margin-bottom: 4px; }
+    .cv-sidebar-bar.short { width: 60%; }
+    .cv-main { flex: 1; padding: 10px 8px; background: #F8FAFF; }
+    .cv-main-bar { height: 4px; background: #D0D8E8; border-radius: 2px; margin-bottom: 4px; }
+    .cv-main-bar.short { width: 50%; }
+    .cv-header-bar { height: 8px; background: var(--navy-700); border-radius: 2px; margin-bottom: 8px; width: 80%; }
+
+    /* Why */
+    #why { background: var(--navy-800); }
+    .why-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .why-grid { grid-template-columns: repeat(3,1fr); } }
+    .why-card { padding: 28px; background: var(--navy-700); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); transition: all var(--transition); }
+    .why-card:hover { border-color: var(--cyan); background: var(--navy-600); }
+    .why-icon { font-size: 1.8rem; margin-bottom: 16px; display: block; }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    html[lang="ar"] .why-card h3 { font-size: 1.05rem; }
+    .why-card p { font-size: 0.875rem; color: var(--white-dim); line-height: 1.65; }
+    html[lang="ar"] .why-card p { line-height: 2; font-size: 0.9rem; }
+
+    /* Testimonials */
+    #testimonials { background: var(--navy-700); }
+    .testimonials-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .testimonial-card { background: var(--navy-800); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 20px; transition: border-color var(--transition); }
+    .testimonial-card:hover { border-color: var(--navy-400); }
+    .stars { display: flex; gap: 3px; }
+    html[lang="ar"] .stars { flex-direction: row-reverse; }
+    .star { color: var(--gold); font-size: 0.9rem; }
+    .testimonial-text { font-size: 0.9rem; color: var(--white-dim); line-height: 1.7; flex: 1; font-style: italic; }
+    html[lang="ar"] .testimonial-text { line-height: 2; font-size: 0.92rem; font-style: normal; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    html[lang="ar"] .testimonial-author { flex-direction: row-reverse; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; flex-shrink: 0; }
+    .author-name { font-size: 0.9rem; font-weight: 700; }
+    html[lang="ar"] .author-name { font-family: var(--arabic); }
+    .author-role { font-size: 0.77rem; color: var(--white-muted); margin-top: 2px; }
+    html[lang="ar"] .author-role { font-family: var(--arabic); font-size: 0.8rem; }
+    html[lang="ar"] .testimonial-author > div { text-align: right; }
+
+    /* CTA */
+    #cta { background: var(--navy-800); padding: 80px 0; }
+    @media (min-width: 768px) { #cta { padding: 100px 0; } }
+    .cta-inner { background: linear-gradient(135deg,var(--navy-600) 0%,var(--navy-700) 100%); border: 1px solid var(--navy-500); border-radius: var(--radius-lg); padding: 56px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-inner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,transparent,var(--cyan),transparent); }
+    .cta-orb { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle,rgba(0,212,255,0.08) 0%,transparent 70%); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .cta-inner .eyebrow { margin-bottom: 16px; }
+    .cta-inner h2 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 700; margin-bottom: 16px; }
+    html[lang="ar"] .cta-inner h2 { line-height: 1.5; }
+    .cta-inner p { color: var(--white-dim); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    html[lang="ar"] .cta-inner p { line-height: 2; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; position: relative; z-index: 1; }
+
+    /* Contact */
+    #contact { background: var(--navy-700); padding: 80px 0; }
+    .contact-grid { display: grid; gap: 20px; }
+    @media (min-width: 640px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .contact-item { display: flex; align-items: center; gap: 14px; padding: 20px 24px; background: var(--navy-800); border: 1px solid var(--navy-500); border-radius: var(--radius-md); transition: all var(--transition); }
+    html[lang="ar"] .contact-item { flex-direction: row-reverse; }
+    .contact-item:hover { border-color: var(--cyan); }
+    .contact-icon { width: 40px; height: 40px; background: var(--navy-600); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .contact-label { font-size: 0.7rem; color: var(--white-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+    html[lang="ar"] .contact-label { font-family: var(--arabic); letter-spacing: 0; font-size: 0.75rem; }
+    html[lang="ar"] .contact-item > div:last-child { text-align: right; }
+    .contact-value { font-size: 0.9rem; font-weight: 500; color: var(--white); }
+
+    /* Footer */
+    footer { background: var(--navy-900); border-top: 1px solid var(--navy-600); padding: 48px 0 32px; }
+    .footer-inner { display: grid; gap: 40px; }
+    @media (min-width: 768px) { .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; } }
+    .footer-brand p { font-size: 0.875rem; color: var(--white-muted); line-height: 1.7; max-width: 280px; margin-top: 12px; }
+    html[lang="ar"] .footer-brand p { line-height: 2; }
+    .footer-col h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.875rem; color: var(--white-muted); transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--cyan); }
+    .footer-bottom { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--navy-600); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+    .footer-bottom p { font-size: 0.8rem; color: var(--white-muted); }
+    html[lang="ar"] .footer-bottom p { font-size: 0.85rem; }
+    .footer-bottom .accent { color: var(--cyan); }
+    .social-links { display: flex; gap: 10px; }
+    .social-link { width: 36px; height: 36px; background: var(--navy-700); border: 1px solid var(--navy-500); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all var(--transition); }
+    .social-link:hover { background: var(--cyan-glow); border-color: var(--cyan); transform: translateY(-2px); }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+    /* Sticky bar */
+    .sticky-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,15,30,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--navy-500); padding: 12px 20px; z-index: 90; }
+    @media (max-width: 767px) { .sticky-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; } }
+    .sticky-bar p { font-size: 0.8rem; color: var(--white-dim); }
+    html[lang="ar"] .sticky-bar p { font-size: 0.85rem; }
+    .sticky-bar strong { font-size: 0.9rem; font-weight: 700; color: var(--white); display: block; }
+    html[lang="ar"] .sticky-bar strong { font-family: var(--arabic); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <div class="spark-icon">⚡</div>
+          <span class="en">Spark Digital</span>
+          <span class="ar">سبارك ديجيتال</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about"><span class="en">About</span><span class="ar">من نحن</span></a>
+          <a href="#services"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+          <a href="#portfolio"><span class="en">Portfolio</span><span class="ar">أعمالنا</span></a>
+          <a href="#testimonials"><span class="en">Reviews</span><span class="ar">آراء العملاء</span></a>
+        </div>
+        <div class="nav-right">
+          <!-- Language Toggle -->
+          <div class="lang-toggle">
+            <button class="lang-btn" id="btnAr" onclick="setLang('ar')">عر</button>
+            <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+          </div>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta">
+            <span class="en">⚡ Book Now</span>
+            <span class="ar">⚡ احجز استشارة</span>
+          </a>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()"><span class="en">About</span><span class="ar">من نحن</span></a>
+    <a href="#services" onclick="closeMobileMenu()"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+    <a href="#portfolio" onclick="closeMobileMenu()"><span class="en">Portfolio</span><span class="ar">أعمالنا</span></a>
+    <a href="#why" onclick="closeMobileMenu()"><span class="en">Why Us</span><span class="ar">لماذا نحن</span></a>
+    <a href="#testimonials" onclick="closeMobileMenu()"><span class="en">Reviews</span><span class="ar">آراء العملاء</span></a>
+    <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobileMenu()">
+      <span class="en">⚡ Book a Consultation</span>
+      <span class="ar">⚡ احجز استشارة مجانية</span>
+    </a>
+    <div class="lang-toggle" style="margin-top:8px;">
+      <button class="lang-btn" id="btnArM" onclick="setLang('ar')">عر</button>
+      <button class="lang-btn" id="btnEnM" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb-1"></div>
+      <div class="hero-orb-2"></div>
+    </div>
+    <div class="spark-particles" id="sparkParticles" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <div class="hero-badge-dot"></div>
+          <span class="en">Available for new projects</span>
+          <span class="ar">متاح لمشاريع جديدة</span>
+        </div>
+        <h1 class="hero-title reveal reveal-delay-1">
+          <span class="en">Professional CVs<br><span class="accent">&amp; Modern</span><br>Project Websites</span>
+          <span class="ar">سيرة ذاتية <span class="accent">احترافية</span><br>ومواقع مشاريع عصرية</span>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          <span class="en">Helping students and professionals build a stronger digital presence — from ATS-ready resumes to polished university project websites.</span>
+          <span class="ar">نساعد الطلاب والمهنيين على بناء حضور رقمي أقوى — من السيرة الذاتية الجاهزة لأنظمة ATS إلى مواقع المشاريع الجامعية الاحترافية.</span>
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary">
+            <span class="en">⚡ Book a Consultation</span>
+            <span class="ar">⚡ احجز استشارة مجانية</span>
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            <span class="en">View Services →</span>
+            <span class="ar">← اكتشف الخدمات</span>
+          </a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div>
+            <div class="hero-stat-value">48<span class="stat-accent">h</span></div>
+            <div class="hero-stat-label"><span class="en">Average turnaround</span><span class="ar">متوسط وقت التسليم</span></div>
+          </div>
+          <div>
+            <div class="hero-stat-value">100<span class="stat-accent">%</span></div>
+            <div class="hero-stat-label"><span class="en">Client satisfaction</span><span class="ar">رضا العملاء</span></div>
+          </div>
+          <div>
+            <div class="hero-stat-value">3<span class="stat-accent">+</span></div>
+            <div class="hero-stat-label"><span class="en">Core services</span><span class="ar">خدمات أساسية</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-card-main">
+            <div class="about-avatar">👨‍💻</div>
+            <div class="about-name"><span class="en">Imad</span><span class="ar">عماد</span></div>
+            <div class="about-role">// Founder, Computer Science Student</div>
+            <p style="font-size:0.875rem; color:var(--white-dim); line-height:1.8;">
+              <span class="en">Passionate about building clean, functional, and impactful digital products. I combine academic knowledge with practical skills to deliver results that actually matter.</span>
+              <span class="ar" style="line-height:2;">شغفي هو بناء منتجات رقمية نظيفة وفعّالة. أجمع بين المعرفة الأكاديمية والمهارات العملية لتقديم نتائج تُحدث فرقاً حقيقياً.</span>
+            </p>
+            <div class="about-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag"><span class="en">CV Design</span><span class="ar">تصميم CV</span></span>
+              <span class="tag">UI / UX</span>
+              <span class="tag">Algeria 🇩🇿</span>
+            </div>
+            <div class="about-floating-badge">
+              <span class="floating-badge-icon">🎓</span>
+              <div>
+                <div class="floating-badge-text">
+                  <span class="en">CS Student → Professional Results</span>
+                  <span class="ar">طالب علوم حاسوب ← نتائج احترافية</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal reveal-delay-2">
+          <p class="eyebrow"><span class="en">About Spark Digital</span><span class="ar">عن سبارك ديجيتال</span></p>
+          <h2 class="display-lg">
+            <span class="en">Built for students,<br>by a student.</span>
+            <span class="ar">صُمِّم للطلاب،<br>من طالب مثلهم.</span>
+          </h2>
+          <p>
+            <span class="en">Spark Digital Services was created with a simple mission: make professional digital services affordable and accessible for university students, fresh graduates, freelancers, and small businesses.</span>
+            <span class="ar">أُنشئت سبارك ديجيتال بمهمة بسيطة: جعل الخدمات الرقمية الاحترافية في متناول طلاب الجامعة، والخريجين الجدد، والمستقلين، والشركات الصغيرة.</span>
+          </p>
+          <p>
+            <span class="en">Whether you need an ATS-ready CV, a stunning university project website, or a complete digital strategy consultation — I deliver professional results without the agency price tag.</span>
+            <span class="ar">سواء كنت تحتاج سيرة ذاتية جاهزة لأنظمة ATS، أو موقعاً مميزاً لمشروعك الجامعي، أو استشارة رقمية شاملة — أقدم لك نتائج احترافية بدون تكلفة الوكالات الكبيرة.</span>
+          </p>
+          <p>
+            <span class="en">Every project gets personal attention, fast communication, and a commitment to quality that larger agencies simply can't match at this price point.</span>
+            <span class="ar">كل مشروع يحظى باهتمام شخصي، وتواصل سريع، والتزام بجودة لا تستطيع الوكالات الكبيرة منافستها بهذا السعر.</span>
+          </p>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan">
+            <span class="en">Book a free discovery call →</span>
+            <span class="ar">← احجز مكالمة اكتشافية مجانية</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span class="en">What I offer</span><span class="ar">ما نقدمه</span></p>
+        <h2 class="display-lg">
+          <span class="en">Services designed<br>for your goals</span>
+          <span class="ar">خدمات مصممة<br>لتحقيق أهدافك</span>
+        </h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">📄</div>
+          <h3><span class="en">CV &amp; Resume Design</span><span class="ar">تصميم السيرة الذاتية</span></h3>
+          <p>
+            <span class="en">Stand out in a competitive job market with a professionally crafted CV that passes ATS systems and impresses human recruiters — tailored to your field and goals.</span>
+            <span class="ar">تميّز في سوق العمل التنافسي بسيرة ذاتية مصممة باحترافية تتخطى أنظمة ATS وتُعجب المسؤولين عن التوظيف — مُخصصة لمجالك وأهدافك.</span>
+          </p>
+          <ul class="service-features">
+            <li><span class="en">Professional CV creation from scratch</span><span class="ar">إنشاء سيرة ذاتية احترافية من الصفر</span></li>
+            <li><span class="en">Resume redesign &amp; modernization</span><span class="ar">إعادة تصميم وتحديث السيرة الذاتية</span></li>
+            <li><span class="en">ATS-optimized formatting</span><span class="ar">تنسيق محسّن لأنظمة ATS</span></li>
+            <li><span class="en">LinkedIn profile optimization</span><span class="ar">تحسين ملف LinkedIn</span></li>
+            <li><span class="en">Cover letter template included</span><span class="ar">قالب خطاب تقديم مُضمَّن</span></li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan btn-sm">
+            <span class="en">Get my CV done →</span><span class="ar">← ابدأ سيرتك الذاتية</span>
+          </a>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🌐</div>
+          <h3><span class="en">University Project Websites</span><span class="ar">مواقع المشاريع الجامعية</span></h3>
+          <p>
+            <span class="en">Present your PFE or PFA with a website that reflects the quality of your work. Clean, responsive, and modern — built to impress your jury and future employers.</span>
+            <span class="ar">قدّم مشروع PFE أو PFA الخاص بك بموقع يعكس جودة عملك. نظيف، متجاوب، وعصري — مصمم لإبهار لجنة التحكيم وأصحاب العمل.</span>
+          </p>
+          <ul class="service-features">
+            <li><span class="en">PFE / PFA project landing pages</span><span class="ar">صفحات مشاريع PFE / PFA</span></li>
+            <li><span class="en">Student portfolio websites</span><span class="ar">مواقع محفظة أعمال الطلاب</span></li>
+            <li><span class="en">HTML / CSS / JavaScript projects</span><span class="ar">مشاريع HTML / CSS / JavaScript</span></li>
+            <li><span class="en">Responsive &amp; mobile-first design</span><span class="ar">تصميم متجاوب يبدأ من الجوال</span></li>
+            <li><span class="en">Custom domain setup assistance</span><span class="ar">مساعدة في إعداد النطاق المخصص</span></li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-cyan btn-sm">
+            <span class="en">Start my website →</span><span class="ar">← ابدأ موقعك الآن</span>
+          </a>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon-wrap">💡</div>
+          <h3><span class="en">Consultation &amp; Planning</span><span class="ar">استشارة وتخطيط</span></h3>
+          <p>
+            <span class="en">Not sure where to start? Book a one-on-one session to map out your digital strategy, plan your project, or get expert feedback on your current materials.</span>
+            <span class="ar">لا تعرف من أين تبدأ؟ احجز جلسة فردية لرسم استراتيجيتك الرقمية، أو التخطيط لمشروعك، أو الحصول على تقييم خبير لموادك الحالية.</span>
+          </p>
+          <ul class="service-features">
+            <li><span class="en">Digital presence audit</span><span class="ar">تدقيق الحضور الرقمي</span></li>
+            <li><span class="en">Project scoping &amp; planning</span><span class="ar">تحديد نطاق المشروع وتخطيطه</span></li>
+            <li><span class="en">Tech stack recommendations</span><span class="ar">توصيات بالتقنيات المناسبة</span></li>
+            <li><span class="en">CV &amp; LinkedIn review session</span><span class="ar">جلسة مراجعة CV و LinkedIn</span></li>
+            <li><span class="en">Freelance setup guidance</span><span class="ar">إرشادات إعداد العمل الحر</span></li>
+          </ul>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            <span class="en">⚡ Book now</span><span class="ar">⚡ احجز الآن</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span class="en">Recent work</span><span class="ar">أحدث الأعمال</span></p>
+        <h2 class="display-lg">
+          <span class="en">Projects that speak<br>for themselves</span>
+          <span class="ar">مشاريع تتحدث<br>عن نفسها</span>
+        </h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-blue">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar"><div class="browser-dot bd-red"></div><div class="browser-dot bd-yellow"></div><div class="browser-dot bd-green"></div><div class="mockup-url"></div></div>
+                <div class="mockup-content"><div class="mockup-hero-bar accent-bar-blue" style="height:38%;"></div><div class="mockup-row" style="margin-top:10px;"></div><div class="mockup-row short"></div><div class="mockup-grid" style="margin-top:10px;"><div class="mockup-block accent-block-blue"></div><div class="mockup-block accent-block-blue"></div><div class="mockup-block accent-block-blue"></div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category"><span class="en">University Project</span><span class="ar">مشروع جامعي</span></div>
+            <div class="portfolio-title"><span class="en">SmartCampus — Software Engineering PFE</span><span class="ar">SmartCampus — مشروع PFE هندسة البرمجيات</span></div>
+            <div class="portfolio-desc"><span class="en">A full-stack campus management system with real-time scheduling and student portal.</span><span class="ar">نظام إدارة حرم جامعي متكامل مع جدولة فورية وبوابة طلابية.</span></div>
+            <div class="portfolio-tech"><span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">REST API</span></div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-dark-cyan">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar"><div class="browser-dot bd-red"></div><div class="browser-dot bd-yellow"></div><div class="browser-dot bd-green"></div><div class="mockup-url"></div></div>
+                <div class="mockup-content"><div class="mockup-hero-bar accent-bar-cyan" style="height:30%;"></div><div class="mockup-row" style="margin-top:8px;"></div><div class="mockup-row short"></div><div class="mockup-row shorter"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category"><span class="en">Student Portfolio</span><span class="ar">محفظة أعمال طالب</span></div>
+            <div class="portfolio-title"><span class="en">Karim B. — Developer Portfolio</span><span class="ar">كريم ب. — محفظة مطور</span></div>
+            <div class="portfolio-desc"><span class="en">Minimalist dark portfolio with animated hero and project showcase.</span><span class="ar">محفظة أعمال داكنة بتصميم مينيمالي مع عرض مشاريع متحرك.</span></div>
+            <div class="portfolio-tech"><span class="tech-pill">HTML/CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">GSAP</span></div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup theme-warm">
+              <div class="mockup-browser">
+                <div class="mockup-browser-bar"><div class="browser-dot bd-red"></div><div class="browser-dot bd-yellow"></div><div class="browser-dot bd-green"></div><div class="mockup-url"></div></div>
+                <div class="mockup-content"><div class="mockup-hero-bar accent-bar-warm" style="height:40%;"></div><div class="mockup-grid" style="margin-top:8px;"><div class="mockup-block accent-block-warm"></div><div class="mockup-block accent-block-warm"></div><div class="mockup-block accent-block-warm"></div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category"><span class="en">Small Business</span><span class="ar">شركة صغيرة</span></div>
+            <div class="portfolio-title"><span class="en">Le Palais — Restaurant Landing Page</span><span class="ar">لو بالي — صفحة هبوط مطعم</span></div>
+            <div class="portfolio-desc"><span class="en">Elegant restaurant website with menu showcase and reservations integration.</span><span class="ar">موقع مطعم أنيق مع عرض القائمة ونظام الحجوزات.</span></div>
+            <div class="portfolio-tech"><span class="tech-pill">HTML/CSS</span><span class="tech-pill">JS</span><span class="tech-pill">Maps API</span></div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-3">
+          <div class="portfolio-preview">
+            <div class="portfolio-mockup" style="background:var(--navy-900);">
+              <div class="cv-mockup"><div class="cv-sidebar"><div class="cv-sidebar-avatar"></div><div style="height:1px;background:rgba(255,255,255,0.1);margin:8px 0;"></div><div class="cv-sidebar-bar"></div><div class="cv-sidebar-bar short"></div><div style="height:8px;"></div><div class="cv-sidebar-bar"></div><div class="cv-sidebar-bar short"></div><div class="cv-sidebar-bar"></div></div><div class="cv-main"><div class="cv-header-bar"></div><div class="cv-main-bar"></div><div class="cv-main-bar short"></div><div style="height:6px;"></div><div class="cv-main-bar"></div><div class="cv-main-bar"></div><div class="cv-main-bar short"></div></div></div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-category"><span class="en">CV Design</span><span class="ar">تصميم سيرة ذاتية</span></div>
+            <div class="portfolio-title"><span class="en">Nour A. — Engineering Graduate CV</span><span class="ar">نور أ. — CV خريج هندسة</span></div>
+            <div class="portfolio-desc"><span class="en">ATS-optimized two-column CV. Landed 3 interviews in the first week.</span><span class="ar">سيرة ذاتية بعمودين محسّنة لأنظمة ATS. أفضت إلى 3 مقابلات في الأسبوع الأول.</span></div>
+            <div class="portfolio-tech"><span class="tech-pill">ATS-Ready</span><span class="tech-pill">PDF Export</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section id="why">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span class="en">Why Spark Digital</span><span class="ar">لماذا سبارك ديجيتال</span></p>
+        <h2 class="display-lg"><span class="en">What makes us<br>different</span><span class="ar">ما الذي يميّزنا<br>عن غيرنا</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1"><span class="why-icon">⚡</span><h3><span class="en">Fast Communication</span><span class="ar">تواصل سريع</span></h3><p><span class="en">I respond within hours, not days. You'll always know where your project stands.</span><span class="ar">أرد في غضون ساعات لا أيام. ستعرف دائماً أين وصل مشروعك.</span></p></div>
+        <div class="why-card reveal reveal-delay-2"><span class="why-icon">💰</span><h3><span class="en">Student-Friendly Pricing</span><span class="ar">أسعار مناسبة للطلاب</span></h3><p><span class="en">Professional quality at prices that fit a student budget.</span><span class="ar">جودة احترافية بأسعار تناسب ميزانية الطالب.</span></p></div>
+        <div class="why-card reveal reveal-delay-3"><span class="why-icon">📱</span><h3><span class="en">Mobile-First Design</span><span class="ar">تصميم يبدأ من الجوال</span></h3><p><span class="en">Every website I build is optimized for mobile devices first.</span><span class="ar">كل موقع أبنيه مُحسَّن للجوال أولاً.</span></p></div>
+        <div class="why-card reveal reveal-delay-1"><span class="why-icon">🏆</span><h3><span class="en">Professional Results</span><span class="ar">نتائج احترافية</span></h3><p><span class="en">No compromise on quality. Every deliverable meets professional industry standards.</span><span class="ar">لا تنازل عن الجودة. كل تسليم يلبي المعايير الاحترافية.</span></p></div>
+        <div class="why-card reveal reveal-delay-2"><span class="why-icon">🤝</span><h3><span class="en">Personalized Support</span><span class="ar">دعم شخصي</span></h3><p><span class="en">You work directly with me — not a junior, not an outsourced team.</span><span class="ar">تتعامل مباشرة معي — ليس مع مساعد أو فريق خارجي.</span></p></div>
+        <div class="why-card reveal reveal-delay-3"><span class="why-icon">🔄</span><h3><span class="en">Unlimited Revisions</span><span class="ar">تعديلات غير محدودة</span></h3><p><span class="en">I don't stop until you're happy. Multiple revision rounds included.</span><span class="ar">لا أتوقف حتى تكون راضياً. جولات تعديل متعددة مُدرَجة.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span class="en">Client reviews</span><span class="ar">آراء العملاء</span></p>
+        <h2 class="display-lg"><span class="en">What clients say</span><span class="ar">ماذا يقول عملاؤنا</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"Imad delivered my PFE website in under 48 hours and it looked better than anything I could have imagined. My jury was genuinely impressed."</span><span class="ar">"عماد سلّم لي موقع مشروع PFE في أقل من 48 ساعة وبدا أفضل مما تخيّلت. لجنة التحكيم أُعجبت به فعلاً."</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#00D4FF,#0080FF);color:var(--navy-900);">AH</div><div><div class="author-name"><span class="en">Ahmed H.</span><span class="ar">أحمد ح.</span></div><div class="author-role"><span class="en">Software Engineering Student, USTO</span><span class="ar">طالب هندسة برمجيات، USTO</span></div></div></div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"My old CV was getting zero responses. After Imad redesigned it, I got 4 interview calls in the first two weeks."</span><span class="ar">"سيرتي الذاتية القديمة لم تحصل على أي رد. بعد أن أعاد عماد تصميمها، حصلت على 4 مكالمات مقابلة في أسبوعين."</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#00E5A0,#00A8CC);color:var(--navy-900);">SB</div><div><div class="author-name"><span class="en">Sarra B.</span><span class="ar">سارة ب.</span></div><div class="author-role"><span class="en">Recent Graduate, Génie Informatique</span><span class="ar">خريجة حديثة، هندسة المعلوماتية</span></div></div></div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"As a small restaurant owner, I needed a website fast and at a reasonable price. Spark Digital delivered exactly that."</span><span class="ar">"كصاحب مطعم صغير، كنت أحتاج موقعاً سريعاً وبسعر معقول. سبارك ديجيتال قدّم بالضبط ما أردت."</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#FFB84D,#FF6B35);color:var(--navy-900);">MK</div><div><div class="author-name"><span class="en">Mohamed K.</span><span class="ar">محمد ك.</span></div><div class="author-role"><span class="en">Restaurant Owner, Oran</span><span class="ar">صاحب مطعم، وهران</span></div></div></div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"I had a consultation session before my job applications season. Imad reviewed my LinkedIn, CV, and gave me a complete strategy."</span><span class="ar">"أجريت جلسة استشارية قبل موسم التقديم على الوظائف. عماد راجع LinkedIn وCV وأعطاني استراتيجية كاملة."</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#8B5CF6,#EC4899);color:white;">LM</div><div><div class="author-name"><span class="en">Lina M.</span><span class="ar">لينا م.</span></div><div class="author-role"><span class="en">Final-Year Student, ESI</span><span class="ar">طالبة السنة الأخيرة، ESI</span></div></div></div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"Our PFA team was really stressed about the presentation. Imad built us a clean project website in 24 hours. Incredibly fast!"</span><span class="ar">"فريق PFA الخاص بنا كان يعاني من ضغط العرض. عماد بنى لنا موقعاً نظيفاً في 24 ساعة. سرعة مذهلة!"</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#00D4FF,#00E5A0);color:var(--navy-900);">YT</div><div><div class="author-name"><span class="en">Yacine T.</span><span class="ar">ياسين ت.</span></div><div class="author-role"><span class="en">Engineering Student, Tlemcen University</span><span class="ar">طالب هندسة، جامعة تلمسان</span></div></div></div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+          <p class="testimonial-text"><span class="en">"I'm a freelancer and needed to revamp my portfolio quickly. Clients now find me through Google — amazing!"</span><span class="ar">"أنا مستقل وكنت بحاجة لتجديد محفظة أعمالي بسرعة. العملاء الآن يجدونني عبر جوجل — رائع!"</span></p>
+          <div class="testimonial-author"><div class="author-avatar" style="background:linear-gradient(135deg,#FFB84D,#FF6B35);color:var(--navy-900);">RD</div><div><div class="author-name"><span class="en">Ryad D.</span><span class="ar">رياض د.</span></div><div class="author-role"><span class="en">Freelance Designer</span><span class="ar">مصمم مستقل</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-orb"></div>
+        <p class="eyebrow"><span class="en">Ready to start?</span><span class="ar">مستعد للبدء؟</span></p>
+        <h2>
+          <span class="en">Let's build your digital presence together</span>
+          <span class="ar">لنبني حضورك الرقمي معاً</span>
+        </h2>
+        <p>
+          <span class="en">Whether you need a CV, a website, or just a conversation — the first step is a free 30-minute consultation. No commitment, no pressure.</span>
+          <span class="ar">سواء كنت تحتاج سيرة ذاتية، أو موقعاً، أو مجرد محادثة — الخطوة الأولى هي استشارة مجانية لمدة 30 دقيقة. بدون التزام، بدون ضغط.</span>
+        </p>
+        <div class="cta-actions">
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary">
+            <span class="en">⚡ Book a Free Consultation</span><span class="ar">⚡ احجز استشارة مجانية</span>
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            <span class="en">Explore Services</span><span class="ar">اكتشف الخدمات</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow"><span class="en">Get in touch</span><span class="ar">تواصل معنا</span></p>
+        <h2 class="display-md"><span class="en">Reach out anytime</span><span class="ar">تواصل في أي وقت</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item reveal reveal-delay-1"><div class="contact-icon">📅</div><div><div class="contact-label"><span class="en">Book a session</span><span class="ar">احجز جلسة</span></div><div class="contact-value"><a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--cyan);">cal.eu/spark-dz</a></div></div></div>
+        <div class="contact-item reveal reveal-delay-2"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram</div><div class="contact-value">@spark.digital.dz</div></div></div>
+        <div class="contact-item reveal reveal-delay-3"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/spark-dz</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="spark-icon">⚡</div>
+            <span class="en">Spark Digital Services</span>
+            <span class="ar">سبارك ديجيتال</span>
+          </div>
+          <p>
+            <span class="en">Helping students and professionals build a stronger digital presence. CVs, project websites, and digital strategy — made in Algeria, built for the world.</span>
+            <span class="ar">نساعد الطلاب والمهنيين على بناء حضور رقمي أقوى. سيرة ذاتية، مواقع مشاريع، واستراتيجية رقمية — صُنع في الجزائر، للعالم.</span>
+          </p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+            <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="social-link" aria-label="Book">📅</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4><span class="en">Services</span><span class="ar">الخدمات</span></h4>
+          <ul>
+            <li><a href="#services"><span class="en">CV &amp; Resume Design</span><span class="ar">تصميم السيرة الذاتية</span></a></li>
+            <li><a href="#services"><span class="en">University Project Websites</span><span class="ar">مواقع المشاريع الجامعية</span></a></li>
+            <li><a href="#services"><span class="en">Consultation &amp; Planning</span><span class="ar">استشارة وتخطيط</span></a></li>
+            <li><a href="#services"><span class="en">LinkedIn Optimization</span><span class="ar">تحسين LinkedIn</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4><span class="en">Quick Links</span><span class="ar">روابط سريعة</span></h4>
+          <ul>
+            <li><a href="#about"><span class="en">About Spark</span><span class="ar">عن سبارك</span></a></li>
+            <li><a href="#portfolio"><span class="en">Portfolio</span><span class="ar">أعمالنا</span></a></li>
+            <li><a href="#testimonials"><span class="en">Reviews</span><span class="ar">آراء العملاء</span></a></li>
+            <li><a href="https://cal.eu/spark-dz" target="_blank" rel="noopener"><span class="en">Book a Consultation ⚡</span><span class="ar">احجز استشارة ⚡</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span class="accent">Spark Digital Services</span>. <span class="en">Built with passion in Algeria 🇩🇿</span><span class="ar">صُنع بشغف في الجزائر 🇩🇿</span></p>
+        <p style="font-size:0.75rem;color:var(--white-muted);"><span class="en">Designed by Imad</span><span class="ar">تصميم عماد</span> · <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--cyan);"><span class="en">Book a session</span><span class="ar">احجز جلسة</span></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <div>
+      <strong><span class="en">Ready to start?</span><span class="ar">مستعد للبدء؟</span></strong>
+      <p><span class="en">Book a free consultation</span><span class="ar">احجز استشارة مجانية</span></p>
+    </div>
+    <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+      <span class="en">⚡ Book Now</span><span class="ar">⚡ احجز الآن</span>
+    </a>
+  </div>
+
+  <script>
+    // ============================================================
+    // LANGUAGE SWITCHER
+    // ============================================================
+    function setLang(lang) {
+      const html = document.getElementById('htmlRoot');
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      // Update active button state (desktop + mobile)
+      ['Ar','En','ArM','EnM'].forEach(id => {
+        const btn = document.getElementById('btn' + id);
+        if (btn) btn.classList.remove('active');
+      });
+      if (lang === 'ar') {
+        document.getElementById('btnAr')?.classList.add('active');
+        document.getElementById('btnArM')?.classList.add('active');
+      } else {
+        document.getElementById('btnEn')?.classList.add('active');
+        document.getElementById('btnEnM')?.classList.add('active');
+      }
+
+      // Update page title & meta
+      document.title = lang === 'ar'
+        ? 'سبارك ديجيتال — سيرة ذاتية احترافية ومواقع مشاريع'
+        : 'Spark Digital Services – Professional CVs & Project Websites';
+
+      localStorage.setItem('spark-lang', lang);
+    }
+
+    // Load saved language preference (default: Arabic)
+    const savedLang = localStorage.getItem('spark-lang') || 'ar';
+    setLang(savedLang);
+
+    // ============================================================
+    // NAV SCROLL
+    // ============================================================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      menuBtn.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      menuBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) closeMobileMenu();
+    });
+
+    // ============================================================
+    // SCROLL REVEAL
+    // ============================================================
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ============================================================
+    // SPARK PARTICLES
+    // ============================================================
+    const particleContainer = document.getElementById('sparkParticles');
+    for (let i = 0; i < 24; i++) {
+      const spark = document.createElement('div');
+      spark.className = 'spark';
+      const size = 1 + Math.random() * 2.5;
+      spark.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;--dur:${3+Math.random()*5}s;--delay:-${Math.random()*6}s;--tx:${(Math.random()-0.5)*120}px;--ty:-${40+Math.random()*100}px;`;
+      if (Math.random() > 0.7) { spark.style.width = `${size*0.5}px`; spark.style.height = `${size*4}px`; spark.style.borderRadius = '1px'; }
+      particleContainer.appendChild(spark);
+    }
+
+    // ============================================================
+    // STICKY BAR
+    // ============================================================
+    const stickyBar = document.getElementById('stickyBar');
+    const heroSection = document.getElementById('hero');
+    new IntersectionObserver((entries) => {
+      stickyBar.style.display = entries[0].isIntersecting ? 'none' : '';
+    }, { threshold: 0.3 }).observe(heroSection);
+
+    // ============================================================
+    // SMOOTH SCROLL (offset for fixed nav)
+    // ============================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
