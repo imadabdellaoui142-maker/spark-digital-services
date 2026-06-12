@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>سبارك ديجيتال — مواقع احترافية، CV، ومشاريع جامعية</title>
+<meta name="description" content="خدمات رقمية احترافية للطلاب والمهنيين — سيرة ذاتية، مواقع مشاريع جامعية، محافظ أعمال، ومواقع أعمال."/>
+<meta name="theme-color" content="#0B0F1A"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+:root {
+  --base:     #0B0F1A;
+  --surface:  #111827;
+  --elevated: #1C2537;
+  --border:   #263047;
+  --border-hi:#374B6B;
+  --amber:    #F59E0B;
+  --amber-dim:#D97706;
+  --amber-glow: rgba(245,158,11,0.18);
+  --amber-glow-strong: rgba(245,158,11,0.32);
+  --sky:      #38BDF8;
+  --sky-glow: rgba(56,189,248,0.15);
+  --green:    #10B981;
+  --white:    #F8FAFC;
+  --muted:    #94A3B8;
+  --subtle:   #475569;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-arabic:  'Cairo', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+  --ease: cubic-bezier(0.4,0,0.2,1);
+  --t: 0.28s var(--ease);
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--base);color:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:var(--font-arabic)}
+html[lang="en"] body{font-family:var(--font-body)}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--base)}
+::-webkit-scrollbar-thumb{background:var(--elevated);border-radius:2px}
+
+/* ============================================================
+   i18n HELPERS
+============================================================ */
+.ar{display:none}.en{display:inline}
+html[lang="ar"] .ar{display:inline}
+html[lang="ar"] .en{display:none}
+.ar-b{display:none}.en-b{display:block}
+html[lang="ar"] .ar-b{display:block}
+html[lang="ar"] .en-b{display:none}
+
+/* ============================================================
+   TYPOGRAPHY
+============================================================ */
+html[lang="en"] .t-display{font-family:var(--font-display);letter-spacing:-0.02em}
+html[lang="ar"] .t-display{font-family:var(--font-arabic);letter-spacing:0}
+.t-mono{font-family:var(--font-mono)}
+.t-amber{color:var(--amber)}
+.t-sky{color:var(--sky)}
+.t-muted{color:var(--muted)}
+.eyebrow{font-family:var(--font-mono);font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber)}
+html[lang="ar"] .eyebrow{font-family:var(--font-arabic);letter-spacing:0;font-size:0.8rem}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.container{padding:0 48px}}
+.section{padding:96px 0}
+@media(max-width:768px){.section{padding:64px 0}}
+.section-head{margin-bottom:64px}
+.section-head .eyebrow{margin-bottom:14px;display:block}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--r-md);font-weight:600;font-size:0.95rem;transition:all var(--t);white-space:nowrap;position:relative;overflow:hidden}
+html[lang="ar"] .btn{font-family:var(--font-arabic);font-size:1rem}
+.btn-amber{background:var(--amber);color:#000;box-shadow:0 0 24px var(--amber-glow-strong)}
+.btn-amber:hover{background:var(--amber-dim);transform:translateY(-2px);box-shadow:0 0 40px var(--amber-glow-strong)}
+.btn-amber:active{transform:translateY(0)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid var(--border-hi)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+.btn-outline-amber{background:transparent;color:var(--amber);border:1.5px solid var(--amber)}
+.btn-outline-amber:hover{background:var(--amber-glow);transform:translateY(-2px)}
+.btn-sm{padding:9px 20px;font-size:0.85rem}
+html[lang="ar"] .btn-sm{font-size:0.9rem}
+
+/* ============================================================
+   LANGUAGE TOGGLE
+============================================================ */
+.lang-pill{display:flex;align-items:center;background:var(--elevated);border:1px solid var(--border);border-radius:100px;padding:3px;gap:0;flex-shrink:0}
+.lang-opt{padding:5px 13px;border-radius:100px;font-size:0.75rem;font-weight:600;color:var(--muted);transition:all var(--t);cursor:pointer;font-family:var(--font-body) !important;letter-spacing:0 !important}
+.lang-opt.on{background:var(--amber);color:#000}
+.lang-opt:not(.on):hover{color:var(--white)}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 0;transition:all var(--t)}
+#nav.stuck{background:rgba(11,15,26,0.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem}
+html[lang="en"] .nav-logo{font-family:var(--font-display)}
+html[lang="ar"] .nav-logo{font-family:var(--font-arabic);font-size:1rem}
+.logo-mark{width:34px;height:34px;background:var(--amber);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 18px var(--amber-glow-strong)}
+.logo-mark svg{width:18px;height:18px}
+.nav-links{display:none;gap:4px;align-items:center}
+@media(min-width:900px){.nav-links{display:flex}}
+.nav-links a{padding:8px 14px;border-radius:var(--r-sm);font-size:0.875rem;color:var(--muted);transition:all var(--t)}
+html[lang="ar"] .nav-links a{font-family:var(--font-arabic);font-size:0.9rem}
+.nav-links a:hover{color:var(--white);background:var(--elevated)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-book{display:none}
+@media(min-width:900px){.nav-book{display:inline-flex}}
+.ham{display:flex;flex-direction:column;gap:5px;padding:8px;border-radius:var(--r-sm);transition:background var(--t)}
+@media(min-width:900px){.ham{display:none}}
+.ham:hover{background:var(--elevated)}
+.ham span{display:block;width:22px;height:1.5px;background:var(--white);border-radius:1px;transition:all var(--t)}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* Mobile overlay */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--base);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1.35rem;font-weight:700;color:var(--muted);padding:12px 32px;border-radius:var(--r-md);transition:all var(--t);width:260px;text-align:center}
+html[lang="ar"] .mob-menu a{font-family:var(--font-arabic)}
+.mob-menu a:hover{color:var(--amber);background:var(--elevated)}
+.mob-menu .btn{width:260px;margin-top:10px}
+.mob-menu .lang-pill{margin-top:14px}
+
+/* ============================================================
+   HERO
+============================================================ */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+/* Grid */
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 90% 90% at 50% 40%,black 20%,transparent 80%);
+  opacity:0.4}
+/* Glow orbs */
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.08) 0%,transparent 65%);top:-150px;right:-150px;animation:drift 10s ease-in-out infinite alternate}
+.orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(56,189,248,0.07) 0%,transparent 65%);bottom:0;left:-100px;animation:drift 13s ease-in-out infinite alternate-reverse}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(40px,30px)}}
+
+.hero-inner{position:relative;z-index:1;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--elevated);border:1px solid var(--border-hi);border-radius:100px;padding:6px 16px;margin-bottom:28px}
+.kicker-dot{width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.5)}50%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
+.kicker-text{font-family:var(--font-mono);font-size:0.7rem;color:var(--muted)}
+html[lang="ar"] .kicker-text{font-family:var(--font-arabic);font-size:0.78rem}
+
+.hero-h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;margin-bottom:24px;max-width:800px}
+html[lang="ar"] .hero-h1{font-family:var(--font-arabic);font-size:clamp(2rem,5vw,3.6rem);line-height:1.5;letter-spacing:0;font-weight:900}
+.hero-h1 .hl{color:var(--amber)}
+
+.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:40px}
+html[lang="ar"] .hero-sub{line-height:2;font-size:1.05rem}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-proof{display:flex;flex-wrap:wrap;gap:28px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border)}
+.proof-item{}
+.proof-num{font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--white)}
+html[lang="ar"] .proof-num{font-family:var(--font-arabic)}
+.proof-num span{color:var(--amber)}
+.proof-label{font-size:0.78rem;color:var(--muted);margin-top:2px}
+html[lang="ar"] .proof-label{font-family:var(--font-arabic);font-size:0.82rem}
+
+/* Floating trust badge */
+.hero-badge-wrap{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);flex-direction:column;gap:14px;z-index:2}
+@media(min-width:1100px){.hero-badge-wrap{display:flex}}
+html[lang="ar"] .hero-badge-wrap{right:auto;left:0}
+.trust-card{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-lg);padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 16px 48px rgba(0,0,0,0.4);animation:float var(--fd,6s) ease-in-out infinite alternate}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+.trust-icon{font-size:1.5rem;flex-shrink:0}
+.trust-title{font-size:0.85rem;font-weight:600}
+html[lang="ar"] .trust-title{font-family:var(--font-arabic)}
+.trust-sub{font-size:0.72rem;color:var(--muted);margin-top:2px}
+html[lang="ar"] .trust-sub{font-family:var(--font-arabic);font-size:0.76rem}
+
+/* ============================================================
+   TRUSTED BY LOGOS (social proof strip)
+============================================================ */
+#social-proof{padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+.proof-strip{display:flex;align-items:center;gap:12px;overflow:hidden}
+.proof-strip-label{font-family:var(--font-mono);font-size:0.68rem;color:var(--subtle);white-space:nowrap;letter-spacing:0.1em;text-transform:uppercase;flex-shrink:0}
+html[lang="ar"] .proof-strip-label{font-family:var(--font-arabic);letter-spacing:0;font-size:0.75rem}
+.proof-logos{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.proof-logo-pill{padding:6px 16px;background:var(--elevated);border:1px solid var(--border);border-radius:100px;font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);white-space:nowrap}
+
+/* ============================================================
+   SERVICES
+============================================================ */
+#services{background:var(--surface)}
+.services-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:560px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+.svc-card{background:var(--elevated);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px;display:flex;flex-direction:column;gap:0;transition:all var(--t);position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;inset:0;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--amber-glow) 0%,transparent 60%);opacity:0;transition:opacity var(--t)}
+.svc-card:hover{border-color:var(--amber);transform:translateY(-4px);box-shadow:0 24px 64px rgba(0,0,0,0.4),0 0 32px var(--amber-glow)}
+.svc-card:hover::before{opacity:1}
+.svc-icon-bg{width:50px;height:50px;background:var(--base);border:1px solid var(--border);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;transition:all var(--t);flex-shrink:0}
+.svc-card:hover .svc-icon-bg{background:var(--amber-glow);border-color:var(--amber)}
+.svc-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+html[lang="ar"] .svc-card h3{font-family:var(--font-arabic);font-size:1.1rem}
+.svc-card p{font-size:0.875rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:22px}
+html[lang="ar"] .svc-card p{font-size:0.9rem;line-height:2}
+.svc-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:0.68rem;color:var(--sky);padding:3px 10px;background:var(--sky-glow);border-radius:4px;margin-bottom:16px;width:fit-content}
+html[lang="ar"] .svc-tag{font-family:var(--font-arabic);font-size:0.75rem;letter-spacing:0}
+
+/* ============================================================
+   WHY SPARK
+============================================================ */
+#why{background:var(--base)}
+.why-layout{display:grid;gap:48px;align-items:center}
+@media(min-width:900px){.why-layout{grid-template-columns:1fr 1fr;gap:80px}}
+.why-text h2{margin-bottom:20px}
+.why-text p{color:var(--muted);line-height:1.85;margin-bottom:32px}
+html[lang="ar"] .why-text p{line-height:2.1}
+.why-list{display:flex;flex-direction:column;gap:12px}
+.why-item{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);transition:all var(--t)}
+.why-item:hover{border-color:var(--amber);background:var(--elevated)}
+html[lang="ar"] .why-item{flex-direction:row-reverse}
+.why-item-icon{width:38px;height:38px;background:var(--elevated);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:all var(--t)}
+.why-item:hover .why-item-icon{background:var(--amber-glow)}
+.why-item-body h4{font-size:0.9rem;font-weight:600;margin-bottom:3px}
+html[lang="ar"] .why-item-body h4{font-family:var(--font-arabic);font-size:0.95rem}
+.why-item-body p{font-size:0.8rem;color:var(--muted);line-height:1.6}
+html[lang="ar"] .why-item-body p{font-family:var(--font-arabic);font-size:0.85rem;line-height:1.8}
+html[lang="ar"] .why-item-body{text-align:right}
+
+/* Right panel */
+.why-visual{position:relative}
+.why-main-card{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:32px;position:relative;overflow:hidden}
+.why-main-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),transparent)}
+html[lang="ar"] .why-main-card::before{background:linear-gradient(270deg,var(--amber),transparent)}
+.wmc-avatar{width:60px;height:60px;background:linear-gradient(135deg,var(--amber),#f97316);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:16px;box-shadow:0 0 24px var(--amber-glow-strong)}
+.wmc-name{font-weight:700;font-size:1.05rem;margin-bottom:2px}
+html[lang="ar"] .wmc-name{font-family:var(--font-arabic)}
+.wmc-role{font-family:var(--font-mono);font-size:0.7rem;color:var(--sky);margin-bottom:18px}
+.wmc-body{font-size:0.875rem;color:var(--muted);line-height:1.75}
+html[lang="ar"] .wmc-body{line-height:2;font-size:0.9rem;font-family:var(--font-arabic)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.stag{padding:4px 12px;background:var(--base);border:1px solid var(--border);border-radius:100px;font-family:var(--font-mono);font-size:0.68rem;color:var(--muted)}
+html[lang="ar"] .stag{font-family:var(--font-arabic);font-size:0.75rem}
+.why-float{position:absolute;bottom:-18px;right:20px;background:var(--elevated);border:1px solid var(--amber);border-radius:var(--r-md);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 20px var(--amber-glow);animation:float 5s ease-in-out infinite alternate}
+html[lang="ar"] .why-float{right:auto;left:20px}
+.why-float-icon{font-size:1.1rem}
+.why-float-text{font-family:var(--font-mono);font-size:0.7rem;color:var(--amber)}
+html[lang="ar"] .why-float-text{font-family:var(--font-arabic);font-size:0.78rem}
+
+/* ============================================================
+   PORTFOLIO
+============================================================ */
+#portfolio{background:var(--surface)}
+.portfolio-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.portfolio-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){
+  .portfolio-grid{grid-template-columns:repeat(12,1fr)}
+  .port-card:nth-child(1){grid-column:span 7}
+  .port-card:nth-child(2){grid-column:span 5}
+  .port-card:nth-child(3){grid-column:span 5}
+  .port-card:nth-child(4){grid-column:span 7}
+}
+.port-card{background:var(--elevated);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--t);cursor:pointer}
+.port-card:hover{border-color:var(--border-hi);transform:translateY(-4px);box-shadow:0 24px 56px rgba(0,0,0,0.5)}
+.port-preview{height:200px;position:relative;overflow:hidden}
+@media(min-width:1024px){.port-card:nth-child(1) .port-preview,.port-card:nth-child(4) .port-preview{height:230px}}
+/* Mockup browser shell */
+.mb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:16px}
+.mb-inner{width:100%;height:100%;border-radius:8px 8px 4px 4px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.5)}
+.mb-bar{padding:6px 10px;display:flex;align-items:center;gap:5px}
+.mb-dot{width:6px;height:6px;border-radius:50%}
+.mb-url{flex:1;background:rgba(255,255,255,0.06);border-radius:3px;height:11px;margin-left:8px}
+.mb-body{padding:10px;height:calc(100% - 26px);overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.mb-hero{border-radius:4px;flex-shrink:0}
+.mb-row{height:5px;background:rgba(255,255,255,0.08);border-radius:3px}
+.mb-row.s{width:55%}.mb-row.xs{width:35%}
+.mb-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:4px}
+.mb-col{border-radius:4px;height:28px}
+/* Theme palettes */
+.t-indigo{background:linear-gradient(135deg,#0f0c29,#302b63)}
+.t-teal{background:linear-gradient(135deg,#004d40,#00695c)}
+.t-warm{background:linear-gradient(135deg,#1a0a00,#3d1f00)}
+.t-violet{background:linear-gradient(135deg,#0d001a,#1a0033)}
+.mb-bar-indigo{background:#1c1650}
+.mb-bar-teal{background:#00332b}
+.mb-bar-warm{background:#2a1000}
+.mb-bar-violet{background:#150026}
+.a-indigo{background:linear-gradient(90deg,#818cf8,#6366f1);height:35%}
+.a-teal{background:linear-gradient(90deg,#2dd4bf,#0d9488);height:32%}
+.a-warm{background:linear-gradient(90deg,var(--amber),#f97316);height:38%}
+.a-violet{background:linear-gradient(90deg,#a78bfa,#7c3aed);height:35%}
+.c-indigo{background:rgba(99,102,241,0.18)}
+.c-teal{background:rgba(20,184,166,0.18)}
+.c-warm{background:rgba(245,158,11,0.18)}
+.c-violet{background:rgba(167,139,250,0.18)}
+/* cv mockup */
+.cv-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:16px;background:#0a0a0a}
+.cv-sheet{width:72%;height:90%;background:#f8fafc;border-radius:4px;display:flex;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.6)}
+.cv-left{width:34%;background:#1e293b;padding:10px 7px}
+.cv-av{width:26px;height:26px;background:var(--amber);border-radius:50%;margin:0 auto 6px}
+.cv-bar{height:4px;background:rgba(255,255,255,0.12);border-radius:2px;margin-bottom:4px}
+.cv-bar.s{width:60%}
+.cv-right{flex:1;padding:10px 8px;background:#f8fafc}
+.cv-hb{height:7px;background:#e2e8f0;border-radius:2px;margin-bottom:7px;width:75%}
+.cv-rb{height:4px;background:#e2e8f0;border-radius:2px;margin-bottom:4px}
+.cv-rb.s{width:55%}
+
+.port-info{padding:18px 20px}
+.port-cat{font-family:var(--font-mono);font-size:0.65rem;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:5px}
+.port-title{font-weight:700;font-size:0.95rem;margin-bottom:6px}
+html[lang="ar"] .port-title{font-family:var(--font-arabic);font-size:1rem}
+.port-desc{font-size:0.8rem;color:var(--muted);line-height:1.55}
+html[lang="ar"] .port-desc{font-family:var(--font-arabic);font-size:0.85rem;line-height:1.75}
+.port-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.pill{padding:3px 8px;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:var(--font-mono);font-size:0.65rem;color:var(--subtle)}
+
+/* ============================================================
+   PROCESS
+============================================================ */
+#process{background:var(--base)}
+.process-steps{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.process-steps{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.process-steps{grid-template-columns:repeat(4,1fr);position:relative}}
+/* Connector line desktop */
+@media(min-width:1024px){
+  .process-steps::before{content:'';position:absolute;top:30px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);height:1px;background:linear-gradient(90deg,var(--amber),var(--border),var(--amber));opacity:0.4}
+  html[dir="rtl"] .process-steps::before{background:linear-gradient(270deg,var(--amber),var(--border),var(--amber))}
+}
+.proc-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;transition:all var(--t);position:relative}
+.proc-step:hover{border-color:var(--amber);background:var(--elevated)}
+.proc-num{font-family:var(--font-mono);font-size:0.68rem;color:var(--amber);margin-bottom:14px;display:block}
+.proc-icon{font-size:1.8rem;margin-bottom:14px;display:block}
+.proc-step h3{font-size:0.95rem;font-weight:700;margin-bottom:8px}
+html[lang="ar"] .proc-step h3{font-family:var(--font-arabic);font-size:1rem}
+.proc-step p{font-size:0.82rem;color:var(--muted);line-height:1.65}
+html[lang="ar"] .proc-step p{font-family:var(--font-arabic);font-size:0.87rem;line-height:1.85}
+.proc-dot{position:absolute;top:22px;right:-8px;width:16px;height:16px;background:var(--amber);border-radius:50%;border:3px solid var(--base);display:none;box-shadow:0 0 12px var(--amber-glow-strong)}
+html[dir="rtl"] .proc-dot{right:auto;left:-8px}
+@media(min-width:1024px){.proc-dot{display:block}}
+.proc-step:last-child .proc-dot{display:none}
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+#testimonials{background:var(--surface)}
+.testi-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.testi-grid{grid-template-columns:1fr 1fr 1fr}}
+.testi-card{background:var(--elevated);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:18px;transition:border-color var(--t)}
+.testi-card:hover{border-color:var(--border-hi)}
+.testi-stars{display:flex;gap:3px}
+html[lang="ar"] .testi-stars{flex-direction:row-reverse}
+.star{color:var(--amber);font-size:0.85rem}
+.testi-quote{font-size:0.875rem;color:var(--muted);line-height:1.75;flex:1;font-style:italic}
+html[lang="ar"] .testi-quote{font-style:normal;font-size:0.9rem;line-height:2}
+.testi-author{display:flex;align-items:center;gap:12px}
+html[lang="ar"] .testi-author{flex-direction:row-reverse}
+html[lang="ar"] .testi-author>div{text-align:right}
+.ta-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;flex-shrink:0;font-family:var(--font-display)}
+.ta-name{font-weight:700;font-size:0.88rem}
+html[lang="ar"] .ta-name{font-family:var(--font-arabic)}
+.ta-role{font-size:0.74rem;color:var(--muted);margin-top:1px}
+html[lang="ar"] .ta-role{font-family:var(--font-arabic)}
+
+/* ============================================================
+   PRICING
+============================================================ */
+#pricing{background:var(--base)}
+.pricing-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:640px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.pricing-grid{grid-template-columns:1fr 1fr 1fr}}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px;transition:all var(--t);position:relative;overflow:hidden}
+.price-card.featured{border-color:var(--amber);background:var(--elevated)}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber)}
+.price-badge{position:absolute;top:16px;right:16px;background:var(--amber);color:#000;font-family:var(--font-mono);font-size:0.65rem;font-weight:700;padding:3px 10px;border-radius:100px}
+html[lang="ar"] .price-badge{right:auto;left:16px;font-family:var(--font-arabic);font-size:0.72rem}
+.price-icon{font-size:1.8rem;margin-bottom:16px}
+.price-name{font-size:1rem;font-weight:700;margin-bottom:6px}
+html[lang="ar"] .price-name{font-family:var(--font-arabic);font-size:1.05rem}
+.price-desc{font-size:0.82rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+html[lang="ar"] .price-desc{font-family:var(--font-arabic);font-size:0.87rem;line-height:1.8}
+.price-from{font-family:var(--font-mono);font-size:0.68rem;color:var(--subtle);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+html[lang="ar"] .price-from{font-family:var(--font-arabic);letter-spacing:0;font-size:0.74rem}
+.price-val{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--white)}
+html[lang="ar"] .price-val{font-family:var(--font-arabic)}
+.price-val span{font-size:0.9rem;color:var(--muted);font-weight:400}
+.price-features{margin:20px 0;display:flex;flex-direction:column;gap:9px}
+.pf{display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted)}
+html[lang="ar"] .pf{flex-direction:row-reverse;font-family:var(--font-arabic);font-size:0.87rem}
+.pf::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:0.8rem}
+.price-note{margin-top:20px;padding:14px;background:var(--elevated);border-radius:var(--r-md);border:1px solid var(--border);font-size:0.8rem;color:var(--muted);text-align:center}
+html[lang="ar"] .price-note{font-family:var(--font-arabic);font-size:0.85rem}
+.price-note strong{color:var(--amber)}
+
+/* ============================================================
+   FAQ
+============================================================ */
+#faq{background:var(--surface)}
+.faq-grid{display:grid;gap:48px}
+@media(min-width:900px){.faq-grid{grid-template-columns:1fr 1fr;gap:64px}}
+.faq-col h2{margin-bottom:20px}
+.faq-col>p{color:var(--muted);line-height:1.8;margin-bottom:32px}
+html[lang="ar"] .faq-col>p{line-height:2.1}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color var(--t)}
+.faq-item.open{border-color:var(--amber)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;text-align:start;font-weight:600;font-size:0.9rem;background:var(--elevated);transition:all var(--t);cursor:pointer}
+html[lang="ar"] .faq-q{font-family:var(--font-arabic);font-size:0.95rem;flex-direction:row-reverse}
+.faq-q:hover{background:var(--border)}
+.faq-arrow{font-size:0.8rem;color:var(--muted);transition:transform var(--t);flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--amber)}
+.faq-a{display:none;padding:16px 20px;font-size:0.85rem;color:var(--muted);line-height:1.75;background:var(--surface)}
+html[lang="ar"] .faq-a{font-family:var(--font-arabic);font-size:0.9rem;line-height:2;text-align:right}
+.faq-item.open .faq-a{display:block}
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+#final-cta{background:var(--base);padding:96px 0}
+@media(max-width:768px){#final-cta{padding:64px 0}}
+.fcta-inner{background:linear-gradient(135deg,var(--surface) 0%,var(--elevated) 100%);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:768px){.fcta-inner{padding:48px 28px}}
+.fcta-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.fcta-orb{position:absolute;width:400px;height:400px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.fcta-inner .eyebrow{margin-bottom:18px;display:block}
+.fcta-inner h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px;position:relative}
+html[lang="ar"] .fcta-inner h2{line-height:1.5}
+.fcta-inner p{color:var(--muted);max-width:480px;margin:0 auto 36px;line-height:1.8}
+html[lang="ar"] .fcta-inner p{line-height:2.1}
+.fcta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative}
+.fcta-meta{margin-top:24px;font-size:0.78rem;color:var(--subtle);position:relative}
+html[lang="ar"] .fcta-meta{font-family:var(--font-arabic);font-size:0.82rem}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{background:#070B15;border-top:1px solid var(--border);padding:56px 0 32px}
+.footer-grid{display:grid;gap:40px}
+@media(min-width:768px){.footer-grid{grid-template-columns:1.6fr 1fr 1fr;gap:56px}}
+.footer-brand p{font-size:0.85rem;color:var(--muted);line-height:1.8;margin-top:14px;max-width:280px}
+html[lang="ar"] .footer-brand p{line-height:2.1;font-family:var(--font-arabic)}
+.footer-socials{display:flex;gap:8px;margin-top:20px}
+.fsoc{width:36px;height:36px;background:var(--elevated);border:1px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all var(--t)}
+.fsoc:hover{background:var(--amber-glow);border-color:var(--amber);transform:translateY(-2px)}
+.footer-col h4{font-weight:700;font-size:0.88rem;margin-bottom:16px}
+html[lang="ar"] .footer-col h4{font-family:var(--font-arabic);font-size:0.92rem}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:0.84rem;color:var(--muted);transition:color var(--t)}
+html[lang="ar"] .footer-col ul a{font-family:var(--font-arabic);font-size:0.88rem}
+.footer-col ul a:hover{color:var(--amber)}
+.footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.footer-bottom p{font-size:0.78rem;color:var(--subtle)}
+html[lang="ar"] .footer-bottom p{font-family:var(--font-arabic);font-size:0.82rem}
+.footer-bottom .t-amber{color:var(--amber)}
+
+/* ============================================================
+   STICKY MOBILE CTA
+============================================================ */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(11,15,26,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--border);padding:12px 20px;z-index:100;align-items:center;justify-content:space-between;gap:12px}
+@media(max-width:899px){.sticky-cta{display:flex}}
+.sticky-cta p{font-size:0.78rem;color:var(--muted)}
+html[lang="ar"] .sticky-cta p{font-family:var(--font-arabic);font-size:0.82rem}
+.sticky-cta strong{font-size:0.88rem;font-weight:700;color:var(--white);display:block}
+html[lang="ar"] .sticky-cta strong{font-family:var(--font-arabic)}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+============================================================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.55s var(--ease),transform 0.55s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}.d4{transition-delay:0.32s}.d5{transition-delay:0.4s}.d6{transition-delay:0.48s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo t-display">
+        <div class="logo-mark">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M11 2L3 12h7l-1 6 8-10h-7l1-6z" fill="#000" stroke="#000" stroke-width="0.5"/></svg>
+        </div>
+        <span class="en">Spark Digital</span>
+        <span class="ar">سبارك ديجيتال</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+        <a href="#portfolio"><span class="en">Work</span><span class="ar">أعمالنا</span></a>
+        <a href="#process"><span class="en">Process</span><span class="ar">كيف نعمل</span></a>
+        <a href="#pricing"><span class="en">Pricing</span><span class="ar">الأسعار</span></a>
+        <a href="#faq"><span class="en">FAQ</span><span class="ar">الأسئلة</span></a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang-pill">
+          <button class="lang-opt" id="btnAr" onclick="setLang('ar')">عر</button>
+          <button class="lang-opt" id="btnEn" onclick="setLang('en')">EN</button>
+        </div>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber btn-sm nav-book">
+          <span class="en">⚡ Book Free Call</span>
+          <span class="ar">⚡ احجز مجاناً</span>
+        </a>
+        <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="closeMenu()"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+  <a href="#portfolio" onclick="closeMenu()"><span class="en">Work</span><span class="ar">أعمالنا</span></a>
+  <a href="#process" onclick="closeMenu()"><span class="en">Process</span><span class="ar">كيف نعمل</span></a>
+  <a href="#pricing" onclick="closeMenu()"><span class="en">Pricing</span><span class="ar">الأسعار</span></a>
+  <a href="#faq" onclick="closeMenu()"><span class="en">FAQ</span><span class="ar">الأسئلة</span></a>
+  <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber" onclick="closeMenu()">
+    <span class="en">⚡ Book Free Consultation</span>
+    <span class="ar">⚡ احجز استشارة مجانية</span>
+  </a>
+  <div class="lang-pill">
+    <button class="lang-opt" id="btnArM" onclick="setLang('ar')">عر</button>
+    <button class="lang-opt" id="btnEnM" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-kicker reveal">
+        <div class="kicker-dot"></div>
+        <span class="kicker-text en">Open for projects · Fast delivery · Algeria 🇩🇿</span>
+        <span class="kicker-text ar">متاح لمشاريع جديدة · تسليم سريع · الجزائر 🇩🇿</span>
+      </div>
+      <h1 class="hero-h1 t-display reveal d1">
+        <span class="en">Transform Your Ideas Into<br><span class="hl">Professional Digital Products</span></span>
+        <span class="ar">حوّل أفكارك إلى<br><span class="hl">منتجات رقمية احترافية</span></span>
+      </h1>
+      <p class="hero-sub reveal d2">
+        <span class="en">Professional websites, portfolios, CVs, and university projects — designed to help students, graduates, and businesses stand out.</span>
+        <span class="ar">مواقع احترافية، محافظ أعمال، سيرة ذاتية، ومشاريع جامعية — مصممة لمساعدة الطلاب والخريجين والمؤسسات على التميّز.</span>
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber">
+          <span class="en">⚡ Book a Free Consultation</span>
+          <span class="ar">⚡ احجز استشارة مجانية</span>
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">
+          <span class="en">View Our Work →</span>
+          <span class="ar">← شاهد أعمالنا</span>
+        </a>
+      </div>
+      <div class="hero-proof reveal d4">
+        <div class="proof-item">
+          <div class="proof-num">48<span>h</span></div>
+          <div class="proof-label"><span class="en">Average delivery</span><span class="ar">متوسط التسليم</span></div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">100<span>%</span></div>
+          <div class="proof-label"><span class="en">Satisfaction rate</span><span class="ar">معدل الرضا</span></div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">6<span>+</span></div>
+          <div class="proof-label"><span class="en">Services offered</span><span class="ar">خدمات متاحة</span></div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">∞</div>
+          <div class="proof-label"><span class="en">Revisions included</span><span class="ar">تعديلات مجانية</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Floating trust badges desktop -->
+  <div class="hero-badge-wrap">
+    <div class="trust-card" style="--fd:6s">
+      <span class="trust-icon">🎓</span>
+      <div>
+        <div class="trust-title"><span class="en">Student Friendly</span><span class="ar">مناسب للطلاب</span></div>
+        <div class="trust-sub"><span class="en">Prices built for students</span><span class="ar">أسعار في متناول الطلاب</span></div>
+      </div>
+    </div>
+    <div class="trust-card" style="--fd:8s">
+      <span class="trust-icon">⚡</span>
+      <div>
+        <div class="trust-title"><span class="en">Fast Delivery</span><span class="ar">تسليم سريع</span></div>
+        <div class="trust-sub"><span class="en">Most projects in 48h</span><span class="ar">معظم المشاريع في 48 ساعة</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOCIAL PROOF STRIP
+============================================================ -->
+<div id="social-proof">
+  <div class="container">
+    <div class="proof-strip">
+      <span class="proof-strip-label"><span class="en">Trusted by</span><span class="ar">يثق بنا</span></span>
+      <div class="proof-logos">
+        <span class="proof-logo-pill">USTO Students</span>
+        <span class="proof-logo-pill">ESI Students</span>
+        <span class="proof-logo-pill">USTHB</span>
+        <span class="proof-logo-pill">Freelancers DZ</span>
+        <span class="proof-logo-pill">Small Businesses</span>
+        <span class="proof-logo-pill">PFE / PFA Teams</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="en">What we offer</span><span class="ar">ما نقدمه</span></span>
+      <h2 class="t-display" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;max-width:520px">
+        <span class="en">Everything you need to build your digital presence</span>
+        <span class="ar">كل ما تحتاجه لبناء حضورك الرقمي</span>
+      </h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal d1">
+        <div class="svc-icon-bg">📄</div>
+        <span class="svc-tag">CV · Resume</span>
+        <h3><span class="en">CV &amp; Resume Design</span><span class="ar">تصميم السيرة الذاتية</span></h3>
+        <p><span class="en">ATS-optimized CVs that get you past screening bots and impress real recruiters. Tailored to your industry and career stage.</span><span class="ar">سيرة ذاتية محسّنة لأنظمة ATS تجتاز الفلاتر الآلية وتُعجب المسؤولين — مخصصة لمجالك ومرحلتك المهنية.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-icon-bg">🌐</div>
+        <span class="svc-tag">Portfolio · Web</span>
+        <h3><span class="en">Portfolio Websites</span><span class="ar">مواقع محافظ الأعمال</span></h3>
+        <p><span class="en">Stunning personal or professional portfolio sites that showcase your skills, projects, and personality to clients and employers.</span><span class="ar">مواقع محافظ أعمال شخصية أو مهنية تعرض مهاراتك ومشاريعك للعملاء وأصحاب العمل.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+      <div class="svc-card reveal d3">
+        <div class="svc-icon-bg">🎓</div>
+        <span class="svc-tag">PFE · PFA</span>
+        <h3><span class="en">University Project Websites</span><span class="ar">مواقع المشاريع الجامعية</span></h3>
+        <p><span class="en">Impress your jury with a professional website for your PFE or PFA project. Clean, modern, and presentation-ready in 48 hours.</span><span class="ar">أبهر لجنتك بموقع احترافي لمشروع PFE أو PFA. نظيف، عصري، وجاهز للعرض في 48 ساعة.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+      <div class="svc-card reveal d1">
+        <div class="svc-icon-bg">🏢</div>
+        <span class="svc-tag">Business · Web</span>
+        <h3><span class="en">Business Websites</span><span class="ar">مواقع الأعمال</span></h3>
+        <p><span class="en">Professional multi-page websites for small businesses. Fast, mobile-first, and designed to convert visitors into customers.</span><span class="ar">مواقع متعددة الصفحات للشركات الصغيرة. سريعة، متجاوبة مع الجوال، ومصممة لتحويل الزوار إلى عملاء.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-icon-bg">🚀</div>
+        <span class="svc-tag">Landing · Page</span>
+        <h3><span class="en">Landing Pages</span><span class="ar">صفحات الهبوط</span></h3>
+        <p><span class="en">High-converting single-page sites for products, services, events, or campaigns. Built to drive action and capture leads.</span><span class="ar">صفحات هبوط عالية التحويل للمنتجات والخدمات والحملات. مصممة لدفع الزوار للتصرف.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+      <div class="svc-card reveal d3">
+        <div class="svc-icon-bg">🤖</div>
+        <span class="svc-tag">AI · Content</span>
+        <h3><span class="en">AI Digital Assistance</span><span class="ar">المساعدة الرقمية بالذكاء الاصطناعي</span></h3>
+        <p><span class="en">AI-powered content creation, copywriting, and digital strategy. Get compelling text for your CV, website, or social media.</span><span class="ar">إنشاء محتوى، كتابة نصوص، واستراتيجية رقمية بالذكاء الاصطناعي — لـ CV ومواقعك وسوشيال ميديا.</span></p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber btn-sm">
+          <span class="en">Learn More →</span><span class="ar">← اعرف أكثر</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY SPARK
+============================================================ -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="why-layout">
+      <div class="why-text">
+        <span class="eyebrow reveal"><span class="en">Why choose us</span><span class="ar">لماذا تختارنا</span></span>
+        <h2 class="t-display reveal d1" style="font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;margin-bottom:16px">
+          <span class="en">Quality work.<br>Fair prices.<br>Real results.</span>
+          <span class="ar">عمل احترافي.<br>أسعار منصفة.<br>نتائج حقيقية.</span>
+        </h2>
+        <p class="reveal d2">
+          <span class="en">Spark Digital Services was built specifically for students, graduates, and small businesses who deserve professional results without paying agency prices.</span>
+          <span class="ar">بُنيت سبارك ديجيتال تحديداً للطلاب والخريجين والشركات الصغيرة الذين يستحقون نتائج احترافية دون دفع أسعار الوكالات الكبيرة.</span>
+        </p>
+        <div class="why-list reveal d3">
+          <div class="why-item">
+            <div class="why-item-icon">⚡</div>
+            <div class="why-item-body">
+              <h4><span class="en">Fast Delivery</span><span class="ar">تسليم سريع</span></h4>
+              <p><span class="en">Most projects delivered within 48 hours. No endless waiting.</span><span class="ar">معظم المشاريع تُسلَّم خلال 48 ساعة. لا انتظار طويل.</span></p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">📱</div>
+            <div class="why-item-body">
+              <h4><span class="en">Mobile-First Design</span><span class="ar">تصميم يبدأ من الجوال</span></h4>
+              <p><span class="en">Every site is built for mobile first, desktop second. Always.</span><span class="ar">كل موقع يُبنى للجوال أولاً، ثم للحاسوب. دائماً.</span></p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🤝</div>
+            <div class="why-item-body">
+              <h4><span class="en">Personal Support</span><span class="ar">دعم شخصي مباشر</span></h4>
+              <p><span class="en">You deal directly with me — not a team, not a bot. Real communication.</span><span class="ar">تتواصل مباشرة معي — ليس فريقاً ولا بوت. تواصل حقيقي.</span></p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">💰</div>
+            <div class="why-item-body">
+              <h4><span class="en">Affordable Pricing</span><span class="ar">أسعار في المتناول</span></h4>
+              <p><span class="en">Student-friendly prices with professional-grade output.</span><span class="ar">أسعار تناسب الطلاب مع جودة احترافية حقيقية.</span></p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🔄</div>
+            <div class="why-item-body">
+              <h4><span class="en">Unlimited Revisions</span><span class="ar">تعديلات غير محدودة</span></h4>
+              <p><span class="en">I iterate until you're genuinely happy with the result.</span><span class="ar">أكمل التعديلات حتى تكون راضياً فعلاً عن النتيجة.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual reveal d2">
+        <div class="why-main-card">
+          <div class="wmc-avatar">👨‍💻</div>
+          <div class="wmc-name"><span class="en">Imad</span><span class="ar">عماد</span></div>
+          <div class="wmc-role">// Founder · CS Student · Algeria 🇩🇿</div>
+          <p class="wmc-body">
+            <span class="en">I'm a Computer Science student who turned a passion for clean design and practical development into a service that genuinely helps people. Every project I take gets my full focus and best work.</span>
+            <span class="ar">أنا طالب علوم حاسوب حوّلت شغفي بالتصميم النظيف والبرمجة العملية إلى خدمة تساعد الناس فعلاً. كل مشروع يحصل على تركيزي الكامل وأفضل عملي.</span>
+          </p>
+          <div class="skill-tags">
+            <span class="stag">React</span><span class="stag">HTML/CSS</span><span class="stag">JavaScript</span><span class="stag">UI/UX</span><span class="stag">CV Design</span><span class="stag">AI Tools</span>
+          </div>
+        </div>
+        <div class="why-float">
+          <span class="why-float-icon">🎓</span>
+          <span class="why-float-text"><span class="en">CS Student → Agency Quality</span><span class="ar">طالب → جودة وكالة</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO
+============================================================ -->
+<section id="portfolio" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="en">Our work</span><span class="ar">أعمالنا</span></span>
+      <h2 class="t-display" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800">
+        <span class="en">Projects that deliver results</span>
+        <span class="ar">مشاريع تحقق نتائج</span>
+      </h2>
+    </div>
+    <div class="portfolio-grid">
+      <!-- 1 -->
+      <div class="port-card reveal">
+        <div class="port-preview">
+          <div class="mb t-indigo">
+            <div class="mb-inner">
+              <div class="mb-bar mb-bar-indigo"><div class="mb-dot" style="background:#ff5f57"></div><div class="mb-dot" style="background:#febc2e"></div><div class="mb-dot" style="background:#28c840"></div><div class="mb-url"></div></div>
+              <div class="mb-body"><div class="mb-hero a-indigo"></div><div class="mb-row"></div><div class="mb-row s"></div><div class="mb-cols"><div class="mb-col c-indigo"></div><div class="mb-col c-indigo"></div><div class="mb-col c-indigo"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat"><span class="en">University Project</span><span class="ar">مشروع جامعي</span></div>
+          <div class="port-title"><span class="en">SmartCampus — Software Engineering PFE</span><span class="ar">SmartCampus — مشروع PFE هندسة البرمجيات</span></div>
+          <div class="port-desc"><span class="en">Full-stack campus management platform with real-time scheduling. Built for Master's final-year presentation.</span><span class="ar">منصة إدارة حرم جامعي متكاملة مع جدولة آنية. بُنيت لعرض مشروع ماستر.</span></div>
+          <div class="port-pills"><span class="pill">React</span><span class="pill">Node.js</span><span class="pill">PostgreSQL</span><span class="pill">REST API</span></div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="port-card reveal d1">
+        <div class="port-preview">
+          <div class="cv-wrap">
+            <div class="cv-sheet">
+              <div class="cv-left"><div class="cv-av"></div><div style="height:1px;background:rgba(255,255,255,0.1);margin:6px 0"></div><div class="cv-bar"></div><div class="cv-bar s"></div><div style="height:6px"></div><div class="cv-bar"></div><div class="cv-bar s"></div><div class="cv-bar"></div></div>
+              <div class="cv-right"><div class="cv-hb"></div><div class="cv-rb"></div><div class="cv-rb s"></div><div style="height:5px"></div><div class="cv-rb"></div><div class="cv-rb"></div><div class="cv-rb s"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat"><span class="en">CV Design</span><span class="ar">تصميم سيرة ذاتية</span></div>
+          <div class="port-title"><span class="en">Nour A. — Engineering Graduate CV</span><span class="ar">نور أ. — CV خريج هندسة</span></div>
+          <div class="port-desc"><span class="en">ATS-optimized two-column CV. Secured 3 interviews in the first week after redesign.</span><span class="ar">سيرة ذاتية بعمودين محسّنة لـ ATS. حصل على 3 مقابلات في الأسبوع الأول.</span></div>
+          <div class="port-pills"><span class="pill">ATS-Ready</span><span class="pill">PDF Export</span><span class="pill">LinkedIn</span></div>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="port-card reveal d2">
+        <div class="port-preview">
+          <div class="mb t-teal">
+            <div class="mb-inner">
+              <div class="mb-bar mb-bar-teal"><div class="mb-dot" style="background:#ff5f57"></div><div class="mb-dot" style="background:#febc2e"></div><div class="mb-dot" style="background:#28c840"></div><div class="mb-url"></div></div>
+              <div class="mb-body"><div class="mb-hero a-teal"></div><div class="mb-row"></div><div class="mb-row s"></div><div class="mb-row xs"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat"><span class="en">Portfolio</span><span class="ar">محفظة أعمال</span></div>
+          <div class="port-title"><span class="en">Karim B. — Developer Portfolio</span><span class="ar">كريم ب. — محفظة مطور</span></div>
+          <div class="port-desc"><span class="en">Minimalist developer portfolio with animated sections and project showcase.</span><span class="ar">محفظة مطور مينيمالية مع أقسام متحركة وعرض مشاريع.</span></div>
+          <div class="port-pills"><span class="pill">HTML/CSS</span><span class="pill">JS</span><span class="pill">GSAP</span></div>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="port-card reveal d3">
+        <div class="port-preview">
+          <div class="mb t-warm">
+            <div class="mb-inner">
+              <div class="mb-bar mb-bar-warm"><div class="mb-dot" style="background:#ff5f57"></div><div class="mb-dot" style="background:#febc2e"></div><div class="mb-dot" style="background:#28c840"></div><div class="mb-url"></div></div>
+              <div class="mb-body"><div class="mb-hero a-warm"></div><div class="mb-cols" style="margin-top:8px"><div class="mb-col c-warm"></div><div class="mb-col c-warm"></div><div class="mb-col c-warm"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat"><span class="en">Business</span><span class="ar">موقع أعمال</span></div>
+          <div class="port-title"><span class="en">Le Palais — Restaurant Website</span><span class="ar">لو بالي — موقع مطعم</span></div>
+          <div class="port-desc"><span class="en">Elegant restaurant site with menu showcase, reservations, and Google Maps integration.</span><span class="ar">موقع مطعم أنيق مع قائمة طعام، حجوزات، وخرائط جوجل.</span></div>
+          <div class="port-pills"><span class="pill">HTML/CSS</span><span class="pill">JS</span><span class="pill">Maps API</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section id="process" class="section">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;max-width:560px;margin-left:auto;margin-right:auto">
+      <span class="eyebrow"><span class="en">How it works</span><span class="ar">كيف نعمل</span></span>
+      <h2 class="t-display" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800">
+        <span class="en">From idea to delivery in 4 simple steps</span>
+        <span class="ar">من الفكرة إلى التسليم في 4 خطوات بسيطة</span>
+      </h2>
+    </div>
+    <div class="process-steps">
+      <div class="proc-step reveal d1">
+        <span class="proc-num">01</span>
+        <span class="proc-icon">📅</span>
+        <h3><span class="en">Book a Consultation</span><span class="ar">احجز استشارة</span></h3>
+        <p><span class="en">Schedule a free 30-minute call at cal.eu/spark-dz. No commitment, just a conversation about your project.</span><span class="ar">احجز مكالمة مجانية 30 دقيقة على cal.eu/spark-dz. لا التزام، فقط حديث عن مشروعك.</span></p>
+        <div class="proc-dot"></div>
+      </div>
+      <div class="proc-step reveal d2">
+        <span class="proc-num">02</span>
+        <span class="proc-icon">💬</span>
+        <h3><span class="en">Discuss Requirements</span><span class="ar">ناقش المتطلبات</span></h3>
+        <p><span class="en">We clarify your goals, style preferences, timeline, and budget. I'll send you a clear proposal.</span><span class="ar">نحدد أهدافك، تفضيلاتك، الجدول الزمني، والميزانية. أرسل لك عرضاً واضحاً.</span></p>
+        <div class="proc-dot"></div>
+      </div>
+      <div class="proc-step reveal d3">
+        <span class="proc-num">03</span>
+        <span class="proc-icon">⚙️</span>
+        <h3><span class="en">Design &amp; Development</span><span class="ar">التصميم والتطوير</span></h3>
+        <p><span class="en">I build your project with modern tools and send updates throughout. Your feedback shapes every revision.</span><span class="ar">أبني مشروعك بأدوات حديثة وأرسل تحديثات طوال العملية. تعليقاتك تشكّل كل تعديل.</span></p>
+        <div class="proc-dot"></div>
+      </div>
+      <div class="proc-step reveal d4">
+        <span class="proc-num">04</span>
+        <span class="proc-icon">🚀</span>
+        <h3><span class="en">Delivery &amp; Support</span><span class="ar">التسليم والدعم</span></h3>
+        <p><span class="en">You receive your final files, source code, and deployment support. Post-delivery support included.</span><span class="ar">تستلم الملفات النهائية، الكود المصدري، ودعم النشر. الدعم بعد التسليم مُدرَج.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center">
+      <span class="eyebrow"><span class="en">Client reviews</span><span class="ar">آراء العملاء</span></span>
+      <h2 class="t-display" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800">
+        <span class="en">Trusted by real people</span>
+        <span class="ar">يثق بنا عملاء حقيقيون</span>
+      </h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"My PFE website was delivered in under 36 hours. The jury was visibly impressed. Worth every dinar and more."</span><span class="ar">"تم تسليم موقع PFE الخاص بي في أقل من 36 ساعة. كانت اللجنة مندهشة بشكل واضح. يستحق كل دينار وأكثر."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff">AH</div>
+          <div><div class="ta-name"><span class="en">Ahmed H.</span><span class="ar">أحمد ح.</span></div><div class="ta-role"><span class="en">Software Engineering, USTO</span><span class="ar">هندسة برمجيات، USTO</span></div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"Zero responses with my old CV. After the redesign: 4 interview calls in 2 weeks. The ATS optimization actually works."</span><span class="ar">"صفر ردود مع سيرتي القديمة. بعد إعادة التصميم: 4 مكالمات مقابلة في أسبوعين. تحسين ATS يعمل فعلاً."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff">SB</div>
+          <div><div class="ta-name"><span class="en">Sarra B.</span><span class="ar">سارة ب.</span></div><div class="ta-role"><span class="en">Graduate, Génie Informatique</span><span class="ar">خريجة، هندسة المعلوماتية</span></div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"Needed a restaurant website fast and cheap. Got fast and professional instead. Online orders doubled in the first month."</span><span class="ar">"كنت بحاجة لموقع مطعم سريع ورخيص. حصلت على سريع واحترافي. تضاعفت الطلبات الإلكترونية في الشهر الأول."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,var(--amber),#f97316);color:#000">MK</div>
+          <div><div class="ta-name"><span class="en">Mohamed K.</span><span class="ar">محمد ك.</span></div><div class="ta-role"><span class="en">Restaurant Owner, Oran</span><span class="ar">صاحب مطعم، وهران</span></div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal d1">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"The consultation session alone changed my entire approach to job hunting. Reviewed my LinkedIn, CV, and gave an actual strategy."</span><span class="ar">"جلسة الاستشارة وحدها غيّرت نهجي بالكامل في البحث عن عمل. راجع LinkedIn وCV وأعطى استراتيجية حقيقية."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,#ec4899,#be185d);color:#fff">LM</div>
+          <div><div class="ta-name"><span class="en">Lina M.</span><span class="ar">لينا م.</span></div><div class="ta-role"><span class="en">Final-Year Student, ESI</span><span class="ar">طالبة السنة الأخيرة، ESI</span></div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"Our whole PFA team was stressed days before the defense. Imad had the website done in one day. Absolute lifesaver."</span><span class="ar">"كان فريق PFA بأكمله مرهقاً قبل أيام من المناقشة. عماد أنجز الموقع في يوم واحد. منقذ حقيقي."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,#38bdf8,#0284c7);color:#fff">YT</div>
+          <div><div class="ta-name"><span class="en">Yacine T.</span><span class="ar">ياسين ت.</span></div><div class="ta-role"><span class="en">Engineering Student, Tlemcen</span><span class="ar">طالب هندسة، تلمسان</span></div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-quote"><span class="en">"My freelance portfolio now ranks on Google and brings me clients. The ROI on this investment was immediate."</span><span class="ar">"محفظة أعمال الفريلانس الخاصة بي الآن تظهر على جوجل وتجلب عملاء. العائد على الاستثمار كان فورياً."</span></p>
+        <div class="testi-author">
+          <div class="ta-av" style="background:linear-gradient(135deg,var(--amber),#d97706);color:#000">RD</div>
+          <div><div class="ta-name"><span class="en">Ryad D.</span><span class="ar">رياض د.</span></div><div class="ta-role"><span class="en">Freelance Designer</span><span class="ar">مصمم مستقل</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+============================================================ -->
+<section id="pricing" class="section">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center">
+      <span class="eyebrow"><span class="en">Transparent pricing</span><span class="ar">أسعار شفافة</span></span>
+      <h2 class="t-display" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800">
+        <span class="en">Clear starting prices, no surprises</span>
+        <span class="ar">أسعار واضحة منذ البداية، بدون مفاجآت</span>
+      </h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal d1">
+        <div class="price-icon">📄</div>
+        <div class="price-name"><span class="en">CV Design</span><span class="ar">تصميم السيرة الذاتية</span></div>
+        <div class="price-desc"><span class="en">Professional, ATS-ready CV tailored to your career goals.</span><span class="ar">سيرة ذاتية احترافية جاهزة لأنظمة ATS.</span></div>
+        <div class="price-from"><span class="en">Starting from</span><span class="ar">يبدأ من</span></div>
+        <div class="price-val">1,500 <span>DZD</span></div>
+        <div class="price-features">
+          <div class="pf"><span class="en">Professional layout & design</span><span class="ar">تصميم وتخطيط احترافي</span></div>
+          <div class="pf"><span class="en">ATS keyword optimization</span><span class="ar">تحسين كلمات ATS</span></div>
+          <div class="pf"><span class="en">PDF & Word export</span><span class="ar">تصدير PDF و Word</span></div>
+          <div class="pf"><span class="en">2 revision rounds</span><span class="ar">جولتان من التعديلات</span></div>
+          <div class="pf"><span class="en">Delivery in 24h</span><span class="ar">تسليم في 24 ساعة</span></div>
+        </div>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber" style="width:100%;justify-content:center">
+          <span class="en">Get Started</span><span class="ar">ابدأ الآن</span>
+        </a>
+      </div>
+      <div class="price-card featured reveal d2">
+        <div class="price-badge"><span class="en">Most Popular</span><span class="ar">الأكثر طلباً</span></div>
+        <div class="price-icon">🎓</div>
+        <div class="price-name"><span class="en">University Website</span><span class="ar">موقع جامعي</span></div>
+        <div class="price-desc"><span class="en">PFE/PFA project website that impresses your jury.</span><span class="ar">موقع مشروع PFE/PFA يُبهر لجنتك.</span></div>
+        <div class="price-from"><span class="en">Starting from</span><span class="ar">يبدأ من</span></div>
+        <div class="price-val">3,500 <span>DZD</span></div>
+        <div class="price-features">
+          <div class="pf"><span class="en">Custom responsive design</span><span class="ar">تصميم متجاوب مخصص</span></div>
+          <div class="pf"><span class="en">Project showcase sections</span><span class="ar">أقسام عرض المشروع</span></div>
+          <div class="pf"><span class="en">Mobile & desktop optimized</span><span class="ar">محسّن للجوال والحاسوب</span></div>
+          <div class="pf"><span class="en">Source code included</span><span class="ar">الكود المصدري مُدرَج</span></div>
+          <div class="pf"><span class="en">Delivery in 48h</span><span class="ar">تسليم في 48 ساعة</span></div>
+        </div>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber" style="width:100%;justify-content:center">
+          <span class="en">⚡ Book This</span><span class="ar">⚡ احجز الآن</span>
+        </a>
+      </div>
+      <div class="price-card reveal d3">
+        <div class="price-icon">🌐</div>
+        <div class="price-name"><span class="en">Portfolio Website</span><span class="ar">موقع محفظة أعمال</span></div>
+        <div class="price-desc"><span class="en">Full personal or business portfolio website.</span><span class="ar">موقع محفظة أعمال شخصي أو مهني كامل.</span></div>
+        <div class="price-from"><span class="en">Starting from</span><span class="ar">يبدأ من</span></div>
+        <div class="price-val">5,000 <span>DZD</span></div>
+        <div class="price-features">
+          <div class="pf"><span class="en">Multi-page custom site</span><span class="ar">موقع مخصص متعدد الصفحات</span></div>
+          <div class="pf"><span class="en">Project gallery & about</span><span class="ar">معرض مشاريع وصفحة عني</span></div>
+          <div class="pf"><span class="en">Contact form integration</span><span class="ar">نموذج تواصل مدمج</span></div>
+          <div class="pf"><span class="en">SEO basics included</span><span class="ar">أساسيات SEO مُدرَجة</span></div>
+          <div class="pf"><span class="en">Delivery in 72h</span><span class="ar">تسليم في 72 ساعة</span></div>
+        </div>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-outline-amber" style="width:100%;justify-content:center">
+          <span class="en">Get Started</span><span class="ar">ابدأ الآن</span>
+        </a>
+      </div>
+    </div>
+    <div class="price-note reveal" style="max-width:560px;margin:20px auto 0">
+      <strong><span class="en">Need something custom?</span><span class="ar">تحتاج شيئاً مخصصاً؟</span></strong>
+      <span class="en"> Business websites, landing pages, and AI services are custom-priced. </span>
+      <span class="ar"> مواقع الأعمال وصفحات الهبوط والخدمات بالذكاء الاصطناعي بأسعار مخصصة. </span>
+      <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--amber)">
+        <span class="en">Book a free call →</span><span class="ar">← احجز مكالمة مجانية</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-col">
+        <span class="eyebrow reveal"><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></span>
+        <h2 class="t-display reveal d1" style="font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800">
+          <span class="en">Questions? I've got answers.</span>
+          <span class="ar">أسئلة؟ لديّ إجابات.</span>
+        </h2>
+        <p class="reveal d2">
+          <span class="en">Still not sure? Book a free 30-minute call and I'll answer everything directly.</span>
+          <span class="ar">لا تزال غير متأكد؟ احجز مكالمة مجانية 30 دقيقة وسأجيب على كل شيء مباشرة.</span>
+        </p>
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber reveal d3">
+          <span class="en">⚡ Book Free Call</span><span class="ar">⚡ احجز مكالمة مجانية</span>
+        </a>
+      </div>
+      <div class="faq-col reveal d1">
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">How long does delivery take?</span><span class="ar">كم يستغرق وقت التسليم؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">CV designs are delivered in 24 hours. University project websites in 48 hours. Portfolio and business sites in 48–72 hours depending on complexity. I always give you an exact timeline before starting.</span><span class="ar">سيرة ذاتية في 24 ساعة. مواقع مشاريع جامعية في 48 ساعة. محافظ الأعمال والمواقع التجارية في 48-72 ساعة حسب التعقيد. أعطيك دائماً جدولاً زمنياً دقيقاً قبل البدء.</span></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">Can I request modifications after delivery?</span><span class="ar">هل يمكنني طلب تعديلات بعد التسليم؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">Yes. Unlimited revisions are included until you're happy. I don't consider a project done until you're genuinely satisfied with the result.</span><span class="ar">نعم. التعديلات غير محدودة حتى ترضى. لا أعتبر المشروع منتهياً حتى تكون راضياً فعلاً عن النتيجة.</span></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">Do you support Arabic and French?</span><span class="ar">هل تدعم اللغة العربية والفرنسية؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">Absolutely. I work in Arabic, French, and English. Websites can be built in any of these languages, or bilingual/trilingual combinations with proper RTL support for Arabic.</span><span class="ar">بالتأكيد. أعمل بالعربية والفرنسية والإنجليزية. يمكن بناء المواقع بأي من هذه اللغات، أو مزيج ثنائي/ثلاثي مع دعم RTL صحيح للعربية.</span></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">Can you build university project websites?</span><span class="ar">هل تبني مواقع مشاريع جامعية؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">Yes, this is one of my most popular services. I specialize in PFE and PFA project presentation websites. Many students have used these to impress their jury and stand out during their defense.</span><span class="ar">نعم، هذه إحدى أكثر خدماتي طلباً. أتخصص في مواقع عرض مشاريع PFE و PFA. كثير من الطلاب استخدموها لإبهار لجانهم.</span></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">How do I pay?</span><span class="ar">كيف أدفع؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">Payment is flexible — we agree on the method during the consultation. Options include CCP, BaridiMob, and other local Algerian payment methods. 50% upfront, 50% on delivery.</span><span class="ar">الدفع مرن — نتفق على الطريقة أثناء الاستشارة. خيارات تشمل CCP وBaridiMob وطرق دفع جزائرية أخرى. 50% مقدماً، 50% عند التسليم.</span></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span><span class="en">Do I get the source code?</span><span class="ar">هل أحصل على الكود المصدري؟</span></span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-a"><span class="en">Yes. You receive all source files, assets, and documentation. The project is fully yours — no lock-in, no ongoing fees.</span><span class="ar">نعم. تستلم جميع الملفات المصدرية والأصول والوثائق. المشروع ملكك بالكامل — لا قيود، لا رسوم مستمرة.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section id="final-cta">
+  <div class="container">
+    <div class="fcta-inner reveal">
+      <div class="fcta-orb"></div>
+      <span class="eyebrow"><span class="en">Ready to start?</span><span class="ar">مستعد للبدء؟</span></span>
+      <h2 class="t-display">
+        <span class="en">Ready To Build<br>Something Great?</span>
+        <span class="ar">مستعد لبناء<br>شيء رائع؟</span>
+      </h2>
+      <p>
+        <span class="en">Book a free 30-minute consultation. We'll discuss your project, answer your questions, and map out the best plan — no commitment required.</span>
+        <span class="ar">احجز استشارة مجانية 30 دقيقة. نتحدث عن مشروعك، نجيب على أسئلتك، ونضع أفضل خطة — بدون أي التزام مسبق.</span>
+      </p>
+      <div class="fcta-actions">
+        <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber" style="font-size:1.05rem;padding:16px 36px">
+          <span class="en">⚡ Book Your Consultation</span>
+          <span class="ar">⚡ احجز استشارتك الآن</span>
+        </a>
+      </div>
+      <div class="fcta-meta">
+        <span class="en">Free · No commitment · Responds within hours</span>
+        <span class="ar">مجاني · بدون التزام · رد خلال ساعات</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo t-display">
+          <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M11 2L3 12h7l-1 6 8-10h-7l1-6z" fill="#000"/></svg></div>
+          <span class="en">Spark Digital Services</span>
+          <span class="ar">سبارك ديجيتال</span>
+        </div>
+        <p><span class="en">Professional digital services for students, graduates, freelancers, and small businesses. Built in Algeria 🇩🇿, for the world.</span><span class="ar">خدمات رقمية احترافية للطلاب والخريجين والمستقلين والشركات الصغيرة. صُنع في الجزائر 🇩🇿، للعالم.</span></p>
+        <div class="footer-socials">
+          <a href="#" class="fsoc" aria-label="Instagram">📸</a>
+          <a href="#" class="fsoc" aria-label="LinkedIn">💼</a>
+          <a href="#" class="fsoc" aria-label="WhatsApp">💬</a>
+          <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="fsoc" aria-label="Book">📅</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span class="en">Services</span><span class="ar">الخدمات</span></h4>
+        <ul>
+          <li><a href="#services"><span class="en">CV & Resume Design</span><span class="ar">تصميم السيرة الذاتية</span></a></li>
+          <li><a href="#services"><span class="en">Portfolio Websites</span><span class="ar">مواقع محافظ الأعمال</span></a></li>
+          <li><a href="#services"><span class="en">University Projects</span><span class="ar">مشاريع جامعية</span></a></li>
+          <li><a href="#services"><span class="en">Business Websites</span><span class="ar">مواقع الأعمال</span></a></li>
+          <li><a href="#services"><span class="en">Landing Pages</span><span class="ar">صفحات الهبوط</span></a></li>
+          <li><a href="#services"><span class="en">AI Assistance</span><span class="ar">مساعدة بالذكاء الاصطناعي</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span class="en">Quick Links</span><span class="ar">روابط سريعة</span></h4>
+        <ul>
+          <li><a href="#why"><span class="en">Why Spark</span><span class="ar">لماذا سبارك</span></a></li>
+          <li><a href="#portfolio"><span class="en">Our Work</span><span class="ar">أعمالنا</span></a></li>
+          <li><a href="#pricing"><span class="en">Pricing</span><span class="ar">الأسعار</span></a></li>
+          <li><a href="#process"><span class="en">How It Works</span><span class="ar">كيف نعمل</span></a></li>
+          <li><a href="#faq"><span class="en">FAQ</span><span class="ar">الأسئلة</span></a></li>
+          <li><a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" style="color:var(--amber)"><span class="en">⚡ Book a Call</span><span class="ar">⚡ احجز مكالمة</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span class="t-amber">Spark Digital Services</span>. <span class="en">All rights reserved.</span><span class="ar">جميع الحقوق محفوظة.</span></p>
+      <p><span class="en">Designed & built by Imad · Algeria 🇩🇿</span><span class="ar">تصميم وتطوير عماد · الجزائر 🇩🇿</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div>
+    <strong><span class="en">Start your project today</span><span class="ar">ابدأ مشروعك اليوم</span></strong>
+    <p><span class="en">Free consultation · Fast delivery</span><span class="ar">استشارة مجانية · تسليم سريع</span></p>
+  </div>
+  <a href="https://cal.eu/spark-dz" target="_blank" rel="noopener" class="btn btn-amber btn-sm">
+    <span class="en">⚡ Book</span><span class="ar">⚡ احجز</span>
+  </a>
+</div>
+
+<script>
+// ============================================================
+// LANGUAGE
+// ============================================================
+function setLang(lang){
+  const html=document.getElementById('htmlRoot');
+  html.setAttribute('lang',lang);
+  html.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+  ['btnAr','btnEn','btnArM','btnEnM'].forEach(id=>{
+    const b=document.getElementById(id);
+    if(b)b.classList.remove('on');
+  });
+  if(lang==='ar'){
+    document.getElementById('btnAr')?.classList.add('on');
+    document.getElementById('btnArM')?.classList.add('on');
+  }else{
+    document.getElementById('btnEn')?.classList.add('on');
+    document.getElementById('btnEnM')?.classList.add('on');
+  }
+  document.title=lang==='ar'
+    ?'سبارك ديجيتال — مواقع احترافية، CV، ومشاريع جامعية'
+    :'Spark Digital Services — Professional Websites, CVs & University Projects';
+  try{localStorage.setItem('spark-lang',lang)}catch(e){}
+}
+const savedLang=(()=>{try{return localStorage.getItem('spark-lang')||'ar'}catch(e){return'ar'}})();
+setLang(savedLang);
+
+// ============================================================
+// NAV
+// ============================================================
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>navEl.classList.toggle('stuck',window.scrollY>50),{passive:true});
+
+// ============================================================
+// MOBILE MENU
+// ============================================================
+const hamBtn=document.getElementById('hamBtn');
+const mobMenu=document.getElementById('mobMenu');
+let mOpen=false;
+hamBtn.addEventListener('click',()=>{
+  mOpen=!mOpen;
+  hamBtn.classList.toggle('open',mOpen);
+  mobMenu.classList.toggle('open',mOpen);
+  document.body.style.overflow=mOpen?'hidden':'';
+});
+function closeMenu(){
+  mOpen=false;hamBtn.classList.remove('open');mobMenu.classList.remove('open');document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mOpen)closeMenu()});
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const revEls=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}});
+},{threshold:0.08,rootMargin:'0px 0px -32px 0px'});
+revEls.forEach(el=>ro.observe(el));
+
+// ============================================================
+// FAQ ACCORDION
+// ============================================================
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ============================================================
+// STICKY CTA — hide when hero in view
+// ============================================================
+const heroSec=document.getElementById('hero');
+const stickyBar=document.getElementById('stickyCta');
+new IntersectionObserver(entries=>{
+  stickyBar.style.display=entries[0].isIntersecting?'none':'';
+},{threshold:0.2}).observe(heroSec);
+
+// ============================================================
+// SMOOTH SCROLL
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-68,behavior:'smooth'})}
+  });
+});
+</script>
+</body>
+</html>
